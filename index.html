@@ -1,0 +1,121 @@
+<html>
+<head>
+<title>
+網頁
+</title>
+
+<style type="text/css">
+h2{
+   font-size: 15pt;
+}
+
+body{
+  background: #ffc39f;
+}
+
+.subtitle1{
+  font-size: 13pt;
+  color: 434343;
+  font-family: 微軟正黑體;
+padding-left: 0em;
+padding-right: 0em;
+}
+
+.film{
+  padding-left: 3.5em;
+}
+
+.text{
+  font-size: 12pt;
+  color: 434343;
+  font-family: 標楷體;
+  padding-right: 1.5em;
+}
+
+</style>
+
+</head>
+<body>
+
+
+<center>
+
+<h2>
+<font color=#434343>
+<b>
+PRODUCTS
+</b>
+</font>
+</h2>
+
+<hr width=90% color=#999999 size=2 align=center>
+<marquee bgcolor=434343>
+<font face="標楷體" color=#ffc39f>
+<i>
+other media works~~by 沈志謙
+</i>
+</font>
+</marquee>
+<hr width=90% color=#999999 size=1 align=center>
+
+</center>
+
+<center>
+
+
+  <iframe width="330" height="190" src="https://www.youtube.com/embed/Py62fDduxjM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class=film id=film></iframe>
+
+<button onclick=myfunction()>Change!</button><br>
+  
+</center>
+
+<center>
+
+
+<font class="subtitle1" id=subtitle1> 
+一分鐘剪輯精華
+</font>
+<br>
+<br>
+
+<font class="text" id=text>
+*註:精華中為 畢業紀念影片、相片回顧、老師祝福、表演藝術課短片、網路交友宣導、
+<br>
+家政課小故事、國文課導讀MV 之合輯。
+</font>
+
+</center>
+
+
+<script>
+x=0
+function myfunction()
+{
+i=x%2
+for(;i<2;)
+ {
+
+if(i==0)
+ {
+document.getElementById("film").setAttribute("src","https://www.youtube.com/embed/GYaDDsG9w2E");
+document.getElementById("text").innerHTML="*註:使用Miku Miku Dance製作，取材列表在影片備註欄，獲得800多觀看!";
+document.getElementById("subtitle1").innerHTML="MMD 3D動畫";
+x++;
+break;
+}
+
+else
+ {
+document.getElementById("film").setAttribute("src","https://www.youtube.com/embed/Py62fDduxjM");
+document.getElementById("text").innerHTML="*註:精華中為 畢業紀念影片、相片回顧、老師祝福、表演藝術課短片、網路交友宣導、"+"<br>"+"家政課小故事、國文課導讀MV 之合輯。";
+document.getElementById("subtitle1").innerHTML="一分鐘剪輯精華";
+x++;
+break;
+ }
+ 
+}
+}
+</script>
+
+</body>
+</html>

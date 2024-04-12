@@ -1,3 +1,5 @@
+# 這是高中快畢業時的專案，別笑我
+
 # website design learning
 brian901106.github.io
 

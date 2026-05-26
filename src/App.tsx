@@ -30,9 +30,6 @@ export default function App() {
         <div className="banner-grid"></div>
         <div className="banner-portrait">
           <div className="portrait-placeholder"></div>
-          <a href="/game/index.html" target="_blank" rel="noopener noreferrer" className="explore-link">
-            遊玩我的小遊戲 Demo &gt;
-          </a>
         </div>
       </section>
 

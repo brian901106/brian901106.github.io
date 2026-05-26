@@ -7,21 +7,21 @@ export default function App() {
       {/* HEADER / NAV */}
       <header className="site-header">
         <div className="logo">
-          <div className="logo-icon">SC</div>
+          <div className="logo-icon">沈</div>
         </div>
         <nav className="site-nav">
-          <a href="#">Home</a>
-          <a href="#research">Research</a>
-          <a href="#publications">Publications</a>
-          <a href="#contact">Contact</a>
+          <a href="#">首頁</a>
+          <a href="#research">研究</a>
+          <a href="#publications">發表</a>
+          <a href="#contact">聯絡</a>
         </nav>
       </header>
 
       {/* HERO SECTION */}
       <section className="hero-section">
-        <h1 className="hero-title">SHEN CHIH-CHIEN</h1>
+        <h1 className="hero-title">沈志謙</h1>
         <p className="hero-subtitle">
-          Graduate Researcher · Computer Vision &amp; Visual SLAM Engineer
+          研究生 · 電腦視覺（Computer Vision）與視覺 SLAM 工程師
         </p>
       </section>
 
@@ -31,7 +31,7 @@ export default function App() {
         <div className="banner-portrait">
           <div className="portrait-placeholder"></div>
           <a href="/game/index.html" target="_blank" rel="noopener noreferrer" className="explore-link">
-            Play My Game Demo &gt;
+            遊玩我的小遊戲 Demo &gt;
           </a>
         </div>
       </section>
@@ -40,15 +40,16 @@ export default function App() {
       <section className="about-section">
         <div className="about-image"></div>
         <div className="about-content">
-          <h2 className="section-title">Visual SLAM, 3D Perception &amp; Assistive Navigation</h2>
+          <h2 className="section-title">
+            視覺 SLAM、3D 感知與視障輔助導航
+          </h2>
           <hr className="section-divider" />
           <p className="about-text">
-            Specializing in Computer Vision, Visual SLAM, and 3D Point Cloud Processing,
-            with a focus on assistive navigation systems for the visually impaired and
-            floating obstacle detection. I have hands-on experience building
-            environment-understanding systems from RGB imagery, point clouds, and camera
-            pose data — including deep modifications to ORB-SLAM3 for pose output, point
-            cloud projection, and semantic integration.
+            研究領域涵蓋電腦視覺（Computer Vision）、視覺 SLAM（Visual SLAM）
+            與三維點雲處理（3D Point Cloud Processing），核心目標為
+            建立適用於視障者的輔助導航系統，以及浮空障礙物（Floating Obstacle）的辨識技術。
+            具備以 RGB 影像、點雲與相機姿態資訊建構環境理解系統的實務經驗，
+            並曾深入修改 ORB-SLAM3 原始碼，支援姿態輸出、點雲投影與語意資訊整合。
           </p>
         </div>
       </section>
@@ -56,18 +57,18 @@ export default function App() {
       {/* CORE AREAS SECTION */}
       <section className="areas-section" id="research">
         <hr className="section-divider" />
-        <h2 className="section-title">Core Areas of Investigation</h2>
+        <h2 className="section-title">核心研究領域</h2>
         <div className="areas-grid">
           <div className="area-card card-dark area-card-labeled">
             <span className="area-card-label">
-              Visual SLAM<br />
-              <small>ORB-SLAM2 / ORB-SLAM3</small>
+              視覺 SLAM<br />
+              <small>Visual SLAM · ORB-SLAM2 / ORB-SLAM3</small>
             </span>
           </div>
           <div className="area-card card-green area-card-labeled">
             <span className="area-card-label">
-              3D Point Cloud<br />
-              <small>PCL · Ground Estimation · RANSAC</small>
+              三維點雲處理<br />
+              <small>3D Point Cloud · PCL · RANSAC</small>
             </span>
           </div>
           <a
@@ -78,7 +79,7 @@ export default function App() {
           >
             <span className="area-card-label">
               Manor Hunt<br />
-              <small>Game Demo ›</small>
+              <small>遊戲 Demo ›</small>
             </span>
           </a>
         </div>
@@ -87,39 +88,39 @@ export default function App() {
       {/* PUBLICATIONS SECTION */}
       <section className="publications-section" id="publications">
         <hr className="section-divider" />
-        <h2 className="section-title">Selected Research Projects</h2>
+        <h2 className="section-title">精選研究專案</h2>
         <div className="publications-layout">
           <div className="pub-left">
             <hr className="section-divider" />
             <p className="pub-description">
-              Research focused on enabling safe, real-world navigation for
-              visually impaired users through robust 3D geometry and
-              vision-based methods.
+              以幾何方法與視覺感知為核心，研究如何讓視障者在真實環境中
+              安全且可靠地識別周遭障礙物。
             </p>
           </div>
           <div className="pub-right">
             <hr className="section-divider" />
             <div className="pub-card">
-              <h3>Floating Object Detection for Visually Impaired Assistance</h3>
+              <h3>浮空障礙物偵測與視障輔助導航</h3>
               <p className="pub-meta">
-                Local Plane Fitting · Vertical Connectivity · Temporal Correction
+                Floating Object Detection · Local Plane Fitting · Vertical Connectivity · Temporal Correction
               </p>
               <p className="pub-desc">
-                A novel method using dynamic local ground updating and chessboard
-                area segmentation to distinguish floating obstacles from the ground
-                plane, improving obstacle detection reliability in real-world environments.
+                提出以局部平面擬合（Local Plane Fitting）與垂直連通性分析
+                為核心的方法，透過動態地面更新與棋盤區域分割（Chessboard Area Segmentation），
+                解決傳統固定地面估計導致浮空障礙物誤判的問題，
+                提升視障者於真實環境中的安全性。
               </p>
             </div>
             <hr className="section-divider" />
             <div className="pub-card">
-              <h3>Modification and Extension of ORB-SLAM3</h3>
+              <h3>ORB-SLAM3 修改與擴充</h3>
               <p className="pub-meta">
                 C++ · ROS · Semantic Mapping · Point Cloud Projection
               </p>
               <p className="pub-desc">
-                Extended ORB-SLAM3 to support normal-frame pose output, 2D–3D
-                correspondence logging, image-plane point cloud projection, and
-                ground-aware semantic mapping with dense projection generation.
+                擴充 ORB-SLAM3 以支援一般幀姿態輸出、2D–3D 對應關係紀錄、
+                點雲投影至影像平面，以及地面感知語意地圖建構（Ground-aware Semantic Mapping）
+                與密集投影生成。
               </p>
             </div>
           </div>
@@ -129,18 +130,17 @@ export default function App() {
       {/* COLLABORATE SECTION */}
       <section className="collaborate-section" id="contact">
         <hr className="section-divider" />
-        <h2 className="section-title">Let's Collaborate</h2>
+        <h2 className="section-title">合作邀請</h2>
         <div className="collaborate-layout">
           <div className="collab-left">
             <hr className="section-divider" />
             <p className="collab-text">
-              Open to research collaborations, PhD program discussions, and
-              Computer Vision / Robotics engineering opportunities.
+              歡迎研究合作、博士課程諮詢，以及電腦視覺與機器人工程相關職缺洽詢。
             </p>
           </div>
           <div className="collab-right">
             <hr className="section-divider" />
-            <a href="mailto:" className="explore-link">Get in Touch &gt;</a>
+            <a href="mailto:" className="explore-link">聯絡我 &gt;</a>
           </div>
         </div>
       </section>
@@ -149,24 +149,21 @@ export default function App() {
       <footer className="site-footer">
         <hr className="footer-top-divider" />
         <div className="footer-brand">
-          <span className="footer-icon">SC</span>
-          <span className="footer-name">SHEN CHIH-CHIEN</span>
+          <span className="footer-icon">沈</span>
+          <span className="footer-name">沈志謙　SHEN CHIH-CHIEN</span>
         </div>
         <div className="footer-grid">
           <div className="footer-col">
             <hr className="footer-divider" />
-            <p>Location</p>
+            <p>所在地</p>
           </div>
           <div className="footer-col">
             <hr className="footer-divider" />
-            <p>Waseda University<br />Tokyo, Japan</p>
+            <p>早稻田大學<br />東京，日本</p>
           </div>
           <div className="footer-col">
             <hr className="footer-divider" />
-            <p>
-              Languages<br />
-              Chinese · English · Japanese
-            </p>
+            <p>語言能力<br />中文（母語）· 英文 · 日文（學習中）</p>
           </div>
           <div className="footer-col">
             <hr className="footer-divider" />
@@ -176,28 +173,28 @@ export default function App() {
         <div className="footer-grid footer-nav">
           <div className="footer-col">
             <hr className="footer-divider" />
-            <p>Navigation</p>
+            <p>導覽</p>
           </div>
           <div className="footer-col">
             <hr className="footer-divider" />
             <p>
-              <a href="#">Home</a><br />
-              <a href="#research">Research</a><br />
-              <a href="#publications">Publications</a><br />
-              <a href="#contact">Contact</a>
+              <a href="#">首頁</a><br />
+              <a href="#research">研究</a><br />
+              <a href="#publications">發表</a><br />
+              <a href="#contact">聯絡</a>
             </p>
           </div>
           <div className="footer-col">
             <hr className="footer-divider" />
             <p>
               <a href="/game/index.html" target="_blank" rel="noopener noreferrer">
-                Game Demo
+                遊戲 Demo
               </a>
             </p>
           </div>
           <div className="footer-col">
             <hr className="footer-divider" />
-            <p>&copy; 2025 Shen Chih-Chien.<br />All rights reserved.</p>
+            <p>&copy; 2025 沈志謙<br />版權所有</p>
           </div>
         </div>
       </footer>

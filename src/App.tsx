@@ -71,17 +71,12 @@ export default function App() {
               <small>3D Point Cloud · PCL · RANSAC</small>
             </span>
           </div>
-          <a
-            className="area-card card-purple area-card-link"
-            href="/game/index.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <div className="area-card card-purple area-card-labeled">
             <span className="area-card-label">
-              Manor Hunt<br />
-              <small>遊戲 Demo ›</small>
+              視障輔助導航<br />
+              <small>Assistive Navigation · Ground Plane Estimation</small>
             </span>
-          </a>
+          </div>
         </div>
       </section>
 
@@ -123,6 +118,40 @@ export default function App() {
                 與密集投影生成。
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SIDE PROJECTS SECTION */}
+      <section className="side-projects-section">
+        <hr className="section-divider" />
+        <h2 className="section-title">副專案</h2>
+        <div className="side-projects-layout">
+          <div className="side-left">
+            <hr className="section-divider" />
+            <p className="side-description">
+              研究之外的創作專案，以遊戲設計探索敘事與介面互動。
+            </p>
+          </div>
+          <div className="side-right">
+            <hr className="section-divider" />
+            <a
+              className="side-project-card"
+              href="/game/index.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="side-project-bg card-purple"></div>
+              <div className="side-project-info">
+                <h3>Manor Hunt</h3>
+                <p className="pub-meta">卡牌敘事遊戲 · React · Vanilla JS</p>
+                <p className="pub-desc">
+                  哥德風格的卡牌敘事遊戲原型，玩家在廢棄莊園中透過抉擇影響角色命運。
+                  含完整的數值系統（理智 / 水分 / 恐懼 / 流血）、多結局與三種視角。
+                </p>
+                <span className="side-project-link">遊玩 Demo ›</span>
+              </div>
+            </a>
           </div>
         </div>
       </section>
@@ -188,7 +217,7 @@ export default function App() {
             <hr className="footer-divider" />
             <p>
               <a href="/game/index.html" target="_blank" rel="noopener noreferrer">
-                遊戲 Demo
+                副專案 Demo
               </a>
             </p>
           </div>

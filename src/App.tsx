@@ -30,6 +30,10 @@ export default function App() {
         <div className="banner-grid"></div>
         <div className="banner-portrait">
           <div className="portrait-placeholder"></div>
+          <p className="banner-bio">
+            早稻田大學研究生，專注於電腦視覺與視覺 SLAM，
+            以視障者輔助導航為核心研究方向。
+          </p>
         </div>
       </section>
 

@@ -139,6 +139,13 @@ a {
   background: linear-gradient(160deg, #aaa 0%, #555 40%, #222 100%);
 }
 
+.banner-bio {
+  font-size: 13px;
+  color: #333;
+  line-height: 1.8;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
 .explore-link {
   font-size: 13px;
   color: #1a1a1a;

@@ -171,6 +171,9 @@ a {
 
 .about-image {
   min-height: 300px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   background: linear-gradient(135deg, #bbb 0%, #777 50%, #444 100%);
 }
 
@@ -312,6 +315,25 @@ a {
   font-size: 14px;
   color: #333;
   line-height: 1.7;
+}
+
+.poster-link {
+  display: block;
+  margin-top: 20px;
+  text-decoration: none;
+}
+
+.poster-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  transition: opacity 0.2s;
+}
+
+.poster-link:hover .poster-image {
+  opacity: 0.85;
 }
 
 .area-card-labeled {

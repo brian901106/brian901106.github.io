@@ -1,4 +1,6 @@
 import './App.css'
+import wasedaImg from './assets/waseda.jpg'
+import posterImg from './assets/poster.png'
 
 export default function App() {
   return (
@@ -12,6 +14,8 @@ export default function App() {
         <nav className="site-nav">
           <a href="#">首頁</a>
           <a href="#research">研究</a>
+          <a href="#education">學歷</a>
+          <a href="#experience">經歷</a>
           <a href="#contact">聯絡</a>
         </nav>
       </header>
@@ -20,7 +24,7 @@ export default function App() {
       <section className="hero-section">
         <h1 className="hero-title">沈志謙</h1>
         <p className="hero-subtitle">
-          研究生 · 電腦視覺（Computer Vision）與視覺 SLAM 工程師
+          早稻田大學碩士 · 電腦視覺（Computer Vision）與視覺 SLAM 工程師
         </p>
       </section>
 
@@ -30,7 +34,7 @@ export default function App() {
         <div className="banner-portrait">
           <div className="portrait-placeholder"></div>
           <p className="banner-bio">
-            早稻田大學研究生，專注於電腦視覺與視覺 SLAM，
+            早稻田大學情報生產系統研究科碩士，專注於電腦視覺與視覺 SLAM，
             以視障者輔助導航為核心研究方向。
           </p>
         </div>
@@ -38,7 +42,7 @@ export default function App() {
 
       {/* ABOUT SECTION */}
       <section className="about-section">
-        <div className="about-image"></div>
+        <img className="about-image" src={wasedaImg} alt="早稻田大學情報生產系統研究科" />
         <div className="about-content">
           <h2 className="section-title">
             視覺 SLAM、3D 感知與視障輔助導航
@@ -95,16 +99,24 @@ export default function App() {
           <div className="pub-right">
             <hr className="section-divider" />
             <div className="pub-card">
-              <h3>浮空障礙物偵測與視障輔助導航</h3>
+              <h3>
+                碩士論文：3D Boundary Integration-Based Stair Region Reconstruction
+                in Floating Object Detection for Visually Impaired People
+              </h3>
               <p className="pub-meta">
-                Floating Object Detection · Local Plane Fitting · Vertical Connectivity · Temporal Correction
+                Master Thesis · ORB-SLAM3 · Point Cloud · Monocular Depth Estimation
               </p>
               <p className="pub-desc">
-                提出以局部平面擬合（Local Plane Fitting）與垂直連通性分析
-                為核心的方法，透過動態地面更新與棋盤區域分割（Chessboard Area Segmentation），
-                解決傳統固定地面估計導致浮空障礙物誤判的問題，
-                提升視障者於真實環境中的安全性。
+                以單目鏡頭（1920×1080 / 60fps）輸入，輸出懸浮障礙物
+                （超出導盲杖偵測高度的物體）高度。在樓梯與斜坡等地面高度不斷變化的情境下，
+                以 SLAM 結合點雲處理與 SOTA 單目視覺演算法穩定估計障礙物到地面的距離。
+                提出的樓梯區域重建方法將整體偵測率自 0.55 提升至 0.82
+                （上行 0.36 → 0.73、下行 0.73 → 0.91）。
               </p>
+              <a href={posterImg} target="_blank" rel="noopener noreferrer" className="poster-link">
+                <img className="poster-image" src={posterImg} alt="碩士論文研究海報" />
+                <span className="explore-link">點擊查看完整海報 &gt;</span>
+              </a>
             </div>
             <hr className="section-divider" />
             <div className="pub-card">
@@ -116,6 +128,109 @@ export default function App() {
                 擴充 ORB-SLAM3 以支援一般幀姿態輸出、2D–3D 對應關係紀錄、
                 點雲投影至影像平面，以及地面感知語意地圖建構（Ground-aware Semantic Mapping）
                 與密集投影生成。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* EDUCATION SECTION */}
+      <section className="publications-section" id="education">
+        <hr className="section-divider" />
+        <h2 className="section-title">學歷</h2>
+        <div className="publications-layout">
+          <div className="pub-left">
+            <hr className="section-divider" />
+            <p className="pub-description">
+              從資訊工程紮根，到影像資訊系統的專門研究。
+            </p>
+          </div>
+          <div className="pub-right">
+            <hr className="section-divider" />
+            <div className="pub-card">
+              <h3>早稻田大學 · 碩士</h3>
+              <p className="pub-meta">2023 – 2025 · 情報生產系統研究科 集成系統領域</p>
+              <p className="pub-desc">
+                影像資訊系統實驗室（Image Information System Lab），指導教授：池永 剛。
+                實驗室由副院長領導，每週兩次英文 Meeting，
+                與中國東南大學、日本 Panasonic 具合作關係。
+              </p>
+            </div>
+            <hr className="section-divider" />
+            <div className="pub-card">
+              <h3>國立臺北科技大學 · 學士</h3>
+              <p className="pub-meta">2020 – 2023 · 電資學士班 主修資訊工程</p>
+              <p className="pub-desc">
+                GPA 3.8 / 4.0，系排名前 7%（5 / 71），最後一學期單學期系排名第一。
+                曾任程式設計社幹部、系學會副會長、新生迎新隔宿露營總召。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WORK EXPERIENCE SECTION */}
+      <section className="publications-section" id="experience">
+        <hr className="section-divider" />
+        <h2 className="section-title">工作經歷</h2>
+        <div className="publications-layout">
+          <div className="pub-left">
+            <hr className="section-divider" />
+            <p className="pub-description">
+              替代役期間服務於臺中市警察局第二分局，
+              以程式自動化改善派出所行政流程，
+              並將工具打包為圖形介面執行檔，讓非工程背景的同仁能持續使用。
+            </p>
+          </div>
+          <div className="pub-right">
+            <hr className="section-divider" />
+            <div className="pub-card">
+              <h3>每日排班工具</h3>
+              <p className="pub-meta">Python · GUI · PyInstaller 打包 · Word / Excel 自動生成</p>
+              <p className="pub-desc">
+                原人工流程需每日手動輪轉排班順序、確認請假並逐一修改班表，約 30 分鐘。
+                工具只需輸入第一班人員與當日請假者，即依固定輪班順序自動生成
+                Word 勤務分配表與 Excel 班表，數秒完成。
+                以人員主檔（CSV）管理編制，附圖形介面並打包為獨立執行檔部署至所內電腦。
+              </p>
+            </div>
+            <hr className="section-divider" />
+            <div className="pub-card">
+              <h3>每月輪休管理工具</h3>
+              <p className="pub-meta">Python · GUI · Excel / Google 表單整合</p>
+              <p className="pub-desc">
+                自動由上月大輪番表生成下月輪休表，
+                並整合 Google 表單請假通知與人員資料，自動推算每人請假日對應班號以供核假。
+                原人工作業約 3 小時，程式數秒完成。
+              </p>
+            </div>
+            <hr className="section-divider" />
+            <div className="pub-card">
+              <h3>巡簽統計工具</h3>
+              <p className="pub-meta">Python · PDF 解析 · GUI · Excel 報表</p>
+              <p className="pub-desc">
+                自動解析各派出所「巡邏箱巡簽狀況報表」PDF，
+                彙整巡簽紀錄並產出 Excel 統計報表，
+                取代逐頁人工核對，同樣以圖形介面執行檔形式交付。
+              </p>
+            </div>
+            <hr className="section-divider" />
+            <div className="pub-card">
+              <h3>民防召集通知書產生器</h3>
+              <p className="pub-meta">Python · 名冊資料清理 · 郵件合併</p>
+              <p className="pub-desc">
+                將民防中隊各分隊名冊（Word / 純文字）整理為結構化 Excel，
+                依訓練類型（常年訓練、幹部訓練）自動郵件合併生成全體人員召集通知書。
+              </p>
+            </div>
+            <hr className="section-divider" />
+            <div className="pub-card">
+              <h3>防空避難宣導教材製作</h3>
+              <p className="pub-meta">影片剪輯 · TTS 配音 · 字幕 · 簡報設計</p>
+              <p className="pub-desc">
+                製作分局自製「警政服務 APP／LINE 官方帳號防空避難專區」操作教學影片
+                （含配音與字幕），並協助全社會防衛韌性與防救災宣講、
+                跨年晚會安維勤務等簡報製作。
               </p>
             </div>
           </div>
@@ -169,7 +284,9 @@ export default function App() {
           </div>
           <div className="collab-right">
             <hr className="section-divider" />
-            <a href="mailto:" className="explore-link">聯絡我 &gt;</a>
+            <a href="mailto:brian1030028@gmail.com" className="explore-link">
+              brian1030028@gmail.com &gt;
+            </a>
           </div>
         </div>
       </section>
@@ -209,6 +326,8 @@ export default function App() {
             <p>
               <a href="#">首頁</a><br />
               <a href="#research">研究</a><br />
+              <a href="#education">學歷</a><br />
+              <a href="#experience">經歷</a><br />
               <a href="#contact">聯絡</a>
             </p>
           </div>

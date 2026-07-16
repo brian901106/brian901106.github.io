@@ -24,3 +24,8 @@ dist-ssr
 *.sw?
 
 old_site_backup.zip
+
+# 個人資料原始檔（不上傳）
+資料/
+icon.zip
+icon_extracted/

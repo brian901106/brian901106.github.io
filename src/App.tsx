@@ -1,5 +1,6 @@
 import './App.css'
 import wasedaImg from './assets/waseda.jpg'
+import posterImg from './assets/poster.png'
 
 export default function App() {
   return (
@@ -112,6 +113,10 @@ export default function App() {
                 提出的樓梯區域重建方法將整體偵測率自 0.55 提升至 0.82
                 （上行 0.36 → 0.73、下行 0.73 → 0.91）。
               </p>
+              <a href={posterImg} target="_blank" rel="noopener noreferrer" className="poster-link">
+                <img className="poster-image" src={posterImg} alt="碩士論文研究海報" />
+                <span className="explore-link">點擊查看完整海報 &gt;</span>
+              </a>
             </div>
             <hr className="section-divider" />
             <div className="pub-card">
@@ -172,29 +177,60 @@ export default function App() {
           <div className="pub-left">
             <hr className="section-divider" />
             <p className="pub-description">
-              替代役期間服務於警察局派出所，
-              以程式自動化改善行政流程，將每日例行作業從數十分鐘縮短至數秒。
+              替代役期間服務於臺中市警察局第二分局，
+              以程式自動化改善派出所行政流程，
+              並將工具打包為圖形介面執行檔，讓非工程背景的同仁能持續使用。
             </p>
           </div>
           <div className="pub-right">
             <hr className="section-divider" />
             <div className="pub-card">
-              <h3>每日排班程式</h3>
-              <p className="pub-meta">替代役 · 警局勤務自動化 · Python</p>
+              <h3>每日排班工具</h3>
+              <p className="pub-meta">Python · GUI · PyInstaller 打包 · Word / Excel 自動生成</p>
               <p className="pub-desc">
                 原人工流程需每日手動輪轉排班順序、確認請假並逐一修改班表，約 30 分鐘。
-                程式只需輸入第一班人員與當日請假者，
-                即依固定輪班順序自動生成當日班表，數秒完成。
+                工具只需輸入第一班人員與當日請假者，即依固定輪班順序自動生成
+                Word 勤務分配表與 Excel 班表，數秒完成。
+                以人員主檔（CSV）管理編制，附圖形介面並打包為獨立執行檔部署至所內電腦。
               </p>
             </div>
             <hr className="section-divider" />
             <div className="pub-card">
               <h3>每月輪休管理工具</h3>
-              <p className="pub-meta">替代役 · 警局勤務自動化 · Python · Excel / Google 表單整合</p>
+              <p className="pub-meta">Python · GUI · Excel / Google 表單整合</p>
               <p className="pub-desc">
                 自動由上月大輪番表生成下月輪休表，
                 並整合 Google 表單請假通知與人員資料，自動推算每人請假日對應班號以供核假。
                 原人工作業約 3 小時，程式數秒完成。
+              </p>
+            </div>
+            <hr className="section-divider" />
+            <div className="pub-card">
+              <h3>巡簽統計工具</h3>
+              <p className="pub-meta">Python · PDF 解析 · GUI · Excel 報表</p>
+              <p className="pub-desc">
+                自動解析各派出所「巡邏箱巡簽狀況報表」PDF，
+                彙整巡簽紀錄並產出 Excel 統計報表，
+                取代逐頁人工核對，同樣以圖形介面執行檔形式交付。
+              </p>
+            </div>
+            <hr className="section-divider" />
+            <div className="pub-card">
+              <h3>民防召集通知書產生器</h3>
+              <p className="pub-meta">Python · 名冊資料清理 · 郵件合併</p>
+              <p className="pub-desc">
+                將民防中隊各分隊名冊（Word / 純文字）整理為結構化 Excel，
+                依訓練類型（常年訓練、幹部訓練）自動郵件合併生成全體人員召集通知書。
+              </p>
+            </div>
+            <hr className="section-divider" />
+            <div className="pub-card">
+              <h3>防空避難宣導教材製作</h3>
+              <p className="pub-meta">影片剪輯 · TTS 配音 · 字幕 · 簡報設計</p>
+              <p className="pub-desc">
+                製作分局自製「警政服務 APP／LINE 官方帳號防空避難專區」操作教學影片
+                （含配音與字幕），並協助全社會防衛韌性與防救災宣講、
+                跨年晚會安維勤務等簡報製作。
               </p>
             </div>
           </div>

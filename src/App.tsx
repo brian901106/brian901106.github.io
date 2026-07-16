@@ -34,8 +34,8 @@ export default function App() {
         <div className="banner-portrait">
           <div className="portrait-placeholder"></div>
           <p className="banner-bio">
-            早稻田大學情報生產系統研究科碩士，專注於電腦視覺與視覺 SLAM，
-            以視障者輔助導航為核心研究方向。
+            早稻田大學 IPS 研究院（情報生產系統研究科）碩士畢業，
+            專注於電腦視覺與視覺 SLAM，以視障者輔助導航為核心研究方向。
           </p>
         </div>
       </section>
@@ -87,7 +87,7 @@ export default function App() {
       {/* PUBLICATIONS SECTION */}
       <section className="publications-section" id="publications">
         <hr className="section-divider" />
-        <h2 className="section-title">精選研究專案</h2>
+        <h2 className="section-title">畢業論文</h2>
         <div className="publications-layout">
           <div className="pub-left">
             <hr className="section-divider" />
@@ -148,8 +148,8 @@ export default function App() {
           <div className="pub-right">
             <hr className="section-divider" />
             <div className="pub-card">
-              <h3>早稻田大學 · 碩士</h3>
-              <p className="pub-meta">2023 – 2025 · 情報生產系統研究科 集成系統領域</p>
+              <h3>早稻田大學 IPS 研究院 · 碩士</h3>
+              <p className="pub-meta">2023 – 2025 · 情報生產系統研究科 集成系統領域 · 福岡北九州</p>
               <p className="pub-desc">
                 影像資訊系統實驗室（Image Information System Lab），指導教授：池永 剛。
                 實驗室由副院長領導，每週兩次英文 Meeting，
@@ -178,8 +178,10 @@ export default function App() {
             <hr className="section-divider" />
             <p className="pub-description">
               替代役期間服務於臺中市警察局第二分局，
-              以程式自動化改善派出所行政流程，
-              並將工具打包為圖形介面執行檔，讓非工程背景的同仁能持續使用。
+              日常勤務為巡邏出勤與值班台。
+              運用課餘時間以程式自動化協助改善派出所行政流程，
+              並將工具打包為圖形介面執行檔，讓非工程背景的同仁能持續使用，
+              另協助製作分局宣導影片與簡報。
             </p>
           </div>
           <div className="pub-right">
@@ -305,7 +307,7 @@ export default function App() {
           </div>
           <div className="footer-col">
             <hr className="footer-divider" />
-            <p>早稻田大學<br />東京，日本</p>
+            <p>早稻田大學 IPS 研究院<br />福岡北九州，日本</p>
           </div>
           <div className="footer-col">
             <hr className="footer-divider" />

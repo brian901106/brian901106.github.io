@@ -1,4 +1,4 @@
-import './App.css'
+﻿import './App.css'
 import wasedaImg from './assets/waseda.jpg'
 import posterImg from './assets/poster.png'
 
@@ -85,28 +85,28 @@ export default function App() {
       </section>
 
       {/* PUBLICATIONS SECTION */}
-      <section className="publications-section" id="publications">
+      <section className="records-section" id="thesis">
         <hr className="section-divider" />
         <h2 className="section-title">畢業論文</h2>
-        <div className="publications-layout">
-          <div className="pub-left">
+        <div className="records-layout">
+          <div className="info-left">
             <hr className="section-divider" />
-            <p className="pub-description">
+            <p className="info-description">
               以幾何方法與視覺感知為核心，研究如何讓視障者在真實環境中
               安全且可靠地識別周遭障礙物。
             </p>
           </div>
-          <div className="pub-right">
+          <div className="info-right">
             <hr className="section-divider" />
-            <div className="pub-card">
+            <div className="info-card">
               <h3>
                 碩士論文：3D Boundary Integration-Based Stair Region Reconstruction
                 in Floating Object Detection for Visually Impaired People
               </h3>
-              <p className="pub-meta">
+              <p className="info-meta">
                 Master Thesis · ORB-SLAM3 · Point Cloud · Monocular Depth Estimation
               </p>
-              <p className="pub-desc">
+              <p className="info-desc">
                 以單目鏡頭（1920×1080 / 60fps）輸入，輸出懸浮障礙物
                 （超出導盲杖偵測高度的物體）高度。在樓梯與斜坡等地面高度不斷變化的情境下，
                 以 SLAM 結合點雲處理與 SOTA 單目視覺演算法穩定估計障礙物到地面的距離。
@@ -119,12 +119,12 @@ export default function App() {
               </a>
             </div>
             <hr className="section-divider" />
-            <div className="pub-card">
+            <div className="info-card">
               <h3>ORB-SLAM3 修改與擴充</h3>
-              <p className="pub-meta">
+              <p className="info-meta">
                 C++ · ROS · Semantic Mapping · Point Cloud Projection
               </p>
-              <p className="pub-desc">
+              <p className="info-desc">
                 擴充 ORB-SLAM3 以支援一般幀姿態輸出、2D–3D 對應關係紀錄、
                 點雲投影至影像平面，以及地面感知語意地圖建構（Ground-aware Semantic Mapping）
                 與密集投影生成。
@@ -135,32 +135,32 @@ export default function App() {
       </section>
 
       {/* EDUCATION SECTION */}
-      <section className="publications-section" id="education">
+      <section className="records-section" id="education">
         <hr className="section-divider" />
         <h2 className="section-title">學歷</h2>
-        <div className="publications-layout">
-          <div className="pub-left">
+        <div className="records-layout">
+          <div className="info-left">
             <hr className="section-divider" />
-            <p className="pub-description">
+            <p className="info-description">
               從資訊工程紮根，到影像資訊系統的專門研究。
             </p>
           </div>
-          <div className="pub-right">
+          <div className="info-right">
             <hr className="section-divider" />
-            <div className="pub-card">
+            <div className="info-card">
               <h3>早稻田大學 IPS 研究院 · 碩士</h3>
-              <p className="pub-meta">2023 – 2025 · 情報生產系統研究科 集成系統領域 · 福岡北九州</p>
-              <p className="pub-desc">
+              <p className="info-meta">2023 – 2025 · 情報生產系統研究科 集成系統領域 · 福岡北九州</p>
+              <p className="info-desc">
                 影像資訊系統實驗室（Image Information System Lab），指導教授：池永 剛。
                 實驗室由副院長領導，每週兩次英文 Meeting，
                 與中國東南大學、日本 Panasonic 具合作關係。
               </p>
             </div>
             <hr className="section-divider" />
-            <div className="pub-card">
+            <div className="info-card">
               <h3>國立臺北科技大學 · 學士</h3>
-              <p className="pub-meta">2020 – 2023 · 電資學士班 主修資訊工程</p>
-              <p className="pub-desc">
+              <p className="info-meta">2020 – 2023 · 電資學士班 主修資訊工程</p>
+              <p className="info-desc">
                 GPA 3.8 / 4.0，系排名前 7%（5 / 71），最後一學期單學期系排名第一。
                 曾任程式設計社幹部、系學會副會長、新生迎新隔宿露營總召。
               </p>
@@ -170,13 +170,13 @@ export default function App() {
       </section>
 
       {/* WORK EXPERIENCE SECTION */}
-      <section className="publications-section" id="experience">
+      <section className="records-section" id="experience">
         <hr className="section-divider" />
         <h2 className="section-title">工作經歷</h2>
-        <div className="publications-layout">
-          <div className="pub-left">
+        <div className="records-layout">
+          <div className="info-left">
             <hr className="section-divider" />
-            <p className="pub-description">
+            <p className="info-description">
               替代役期間服務於臺中市警察局第二分局，
               日常勤務為巡邏出勤與值班台。
               運用課餘時間以程式自動化協助改善派出所行政流程，
@@ -184,12 +184,12 @@ export default function App() {
               另協助製作分局宣導影片與簡報。
             </p>
           </div>
-          <div className="pub-right">
+          <div className="info-right">
             <hr className="section-divider" />
-            <div className="pub-card">
+            <div className="info-card">
               <h3>每日排班工具</h3>
-              <p className="pub-meta">Python · GUI · PyInstaller 打包 · Word / Excel 自動生成</p>
-              <p className="pub-desc">
+              <p className="info-meta">Python · GUI · PyInstaller 打包 · Word / Excel 自動生成</p>
+              <p className="info-desc">
                 原人工流程需每日手動輪轉排班順序、確認請假並逐一修改班表，約 30 分鐘。
                 工具只需輸入第一班人員與當日請假者，即依固定輪班順序自動生成
                 Word 勤務分配表與 Excel 班表，數秒完成。
@@ -197,39 +197,39 @@ export default function App() {
               </p>
             </div>
             <hr className="section-divider" />
-            <div className="pub-card">
+            <div className="info-card">
               <h3>每月輪休管理工具</h3>
-              <p className="pub-meta">Python · GUI · Excel / Google 表單整合</p>
-              <p className="pub-desc">
+              <p className="info-meta">Python · GUI · Excel / Google 表單整合</p>
+              <p className="info-desc">
                 自動由上月大輪番表生成下月輪休表，
                 並整合 Google 表單請假通知與人員資料，自動推算每人請假日對應班號以供核假。
                 原人工作業約 3 小時，程式數秒完成。
               </p>
             </div>
             <hr className="section-divider" />
-            <div className="pub-card">
+            <div className="info-card">
               <h3>巡簽統計工具</h3>
-              <p className="pub-meta">Python · PDF 解析 · GUI · Excel 報表</p>
-              <p className="pub-desc">
+              <p className="info-meta">Python · PDF 解析 · GUI · Excel 報表</p>
+              <p className="info-desc">
                 自動解析各派出所「巡邏箱巡簽狀況報表」PDF，
                 彙整巡簽紀錄並產出 Excel 統計報表，
                 取代逐頁人工核對，同樣以圖形介面執行檔形式交付。
               </p>
             </div>
             <hr className="section-divider" />
-            <div className="pub-card">
+            <div className="info-card">
               <h3>民防召集通知書產生器</h3>
-              <p className="pub-meta">Python · 名冊資料清理 · 郵件合併</p>
-              <p className="pub-desc">
+              <p className="info-meta">Python · 名冊資料清理 · 郵件合併</p>
+              <p className="info-desc">
                 將民防中隊各分隊名冊（Word / 純文字）整理為結構化 Excel，
                 依訓練類型（常年訓練、幹部訓練）自動郵件合併生成全體人員召集通知書。
               </p>
             </div>
             <hr className="section-divider" />
-            <div className="pub-card">
+            <div className="info-card">
               <h3>防空避難宣導教材製作</h3>
-              <p className="pub-meta">影片剪輯 · TTS 配音 · 字幕 · 簡報設計</p>
-              <p className="pub-desc">
+              <p className="info-meta">影片剪輯 · TTS 配音 · 字幕 · 簡報設計</p>
+              <p className="info-desc">
                 製作分局自製「警政服務 APP／LINE 官方帳號防空避難專區」操作教學影片
                 （含配音與字幕），並協助全社會防衛韌性與防救災宣講、
                 跨年晚會安維勤務等簡報製作。
@@ -261,8 +261,8 @@ export default function App() {
               <div className="side-project-bg card-purple"></div>
               <div className="side-project-info">
                 <h3>Manor Hunt</h3>
-                <p className="pub-meta">卡牌敘事遊戲 · React · Vanilla JS</p>
-                <p className="pub-desc">
+                <p className="info-meta">卡牌敘事遊戲 · React · Vanilla JS</p>
+                <p className="info-desc">
                   哥德風格的卡牌敘事遊戲原型，玩家在廢棄莊園中透過抉擇影響角色命運。
                   含完整的數值系統（理智 / 水分 / 恐懼 / 流血）、多結局與三種視角。
                 </p>

@@ -12,7 +12,6 @@ export default function App() {
         <nav className="site-nav">
           <a href="#">首頁</a>
           <a href="#research">研究</a>
-          <a href="#publications">發表</a>
           <a href="#contact">聯絡</a>
         </nav>
       </header>
@@ -165,7 +164,7 @@ export default function App() {
           <div className="collab-left">
             <hr className="section-divider" />
             <p className="collab-text">
-              歡迎研究合作、博士課程諮詢，以及電腦視覺與機器人工程相關職缺洽詢。
+              歡迎電腦視覺與機器人工程相關職缺洽詢。
             </p>
           </div>
           <div className="collab-right">
@@ -193,7 +192,7 @@ export default function App() {
           </div>
           <div className="footer-col">
             <hr className="footer-divider" />
-            <p>語言能力<br />中文（母語）· 英文 · 日文（學習中）</p>
+            <p>語言能力<br />中文（母語）· 英文 · 日文</p>
           </div>
           <div className="footer-col">
             <hr className="footer-divider" />
@@ -210,7 +209,6 @@ export default function App() {
             <p>
               <a href="#">首頁</a><br />
               <a href="#research">研究</a><br />
-              <a href="#publications">發表</a><br />
               <a href="#contact">聯絡</a>
             </p>
           </div>
@@ -224,7 +222,7 @@ export default function App() {
           </div>
           <div className="footer-col">
             <hr className="footer-divider" />
-            <p>&copy; 2025 沈志謙<br />版權所有</p>
+            <p>&copy; 2026 沈志謙<br />版權所有</p>
           </div>
         </div>
       </footer>

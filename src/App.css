@@ -171,6 +171,9 @@ a {
 
 .about-image {
   min-height: 300px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   background: linear-gradient(135deg, #bbb 0%, #777 50%, #444 100%);
 }
 

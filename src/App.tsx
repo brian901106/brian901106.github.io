@@ -1,8 +1,39 @@
-﻿import './App.css'
-import wasedaImg from './assets/waseda.jpg'
+﻿import { useEffect } from 'react'
+import './App.css'
 import posterImg from './assets/poster.png'
+import wasedaImg from './assets/waseda.jpg'
+import portraitImg from './assets/portrait.jpg'
+
+// 進場動畫預設不啟用，等 observer 掛上才標記 idle，
+// 這樣 JS 未執行時內容仍然直接可見。
+function useScrollReveal() {
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+    const targets = document.querySelectorAll<HTMLElement>('[data-reveal]')
+    targets.forEach((el) => {
+      el.dataset.revealState = 'idle'
+    })
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return
+          ;(entry.target as HTMLElement).dataset.revealState = 'done'
+          observer.unobserve(entry.target)
+        })
+      },
+      { threshold: 0, rootMargin: '0px 0px -12% 0px' },
+    )
+
+    targets.forEach((el) => observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
+}
 
 export default function App() {
+  useScrollReveal()
+
   return (
     <div className="site-wrapper">
 
@@ -22,64 +53,62 @@ export default function App() {
 
       {/* HERO SECTION */}
       <section className="hero-section">
-        <h1 className="hero-title">沈志謙</h1>
-        <p className="hero-subtitle">
+        <h1 className="hero-title" data-reveal="fade">沈志謙</h1>
+        <hr className="section-divider" />
+        <p className="hero-subtitle" data-reveal="fade">
           早稻田大學碩士 · 電腦視覺（Computer Vision）與視覺 SLAM 工程師
         </p>
       </section>
 
       {/* VISUAL BANNER + PORTRAIT */}
       <section className="banner-section">
-        <div className="banner-grid"></div>
+        <div className="banner-grid" data-reveal="slide"></div>
         <div className="banner-portrait">
-          <div className="portrait-placeholder"></div>
-          <p className="banner-bio">
+          <img className="portrait-placeholder" src={portraitImg} alt="沈志謙" data-reveal="slide" />
+          <p className="banner-bio" data-reveal="fade">
             早稻田大學 IPS 研究院（情報生產系統研究科）碩士畢業，
             專注於電腦視覺與視覺 SLAM，以視障者輔助導航為核心研究方向。
           </p>
         </div>
       </section>
 
-      {/* ABOUT SECTION */}
-      <section className="about-section">
-        <img className="about-image" src={wasedaImg} alt="早稻田大學情報生產系統研究科" />
-        <div className="about-content">
-          <h2 className="section-title">
-            視覺 SLAM、3D 感知與視障輔助導航
-          </h2>
-          <hr className="section-divider" />
-          <p className="about-text">
-            研究領域涵蓋電腦視覺（Computer Vision）、視覺 SLAM（Visual SLAM）
-            與三維點雲處理（3D Point Cloud Processing），核心目標為
-            建立適用於視障者的輔助導航系統，以及浮空障礙物（Floating Obstacle）的辨識技術。
-            具備以 RGB 影像、點雲與相機姿態資訊建構環境理解系統的實務經驗，
-            並曾深入修改 ORB-SLAM3 原始碼，支援姿態輸出、點雲投影與語意資訊整合。
-          </p>
-        </div>
-      </section>
-
-      {/* CORE AREAS SECTION */}
-      <section className="areas-section" id="research">
+      {/* EDUCATION SECTION */}
+      <section className="records-section" id="education">
         <hr className="section-divider" />
-        <h2 className="section-title">核心研究領域</h2>
-        <div className="areas-grid">
-          <div className="area-card card-dark area-card-labeled">
-            <span className="area-card-label">
-              視覺 SLAM<br />
-              <small>Visual SLAM · ORB-SLAM2 / ORB-SLAM3</small>
-            </span>
+        <h2 className="section-title" data-reveal="fade">學歷</h2>
+        <div className="records-layout">
+          <div className="info-left" data-reveal="fade">
+            <hr className="section-divider" />
+            <p className="info-description">
+              從資訊工程紮根，到影像資訊系統的專門研究。
+            </p>
           </div>
-          <div className="area-card card-green area-card-labeled">
-            <span className="area-card-label">
-              三維點雲處理<br />
-              <small>3D Point Cloud · PCL · RANSAC</small>
-            </span>
-          </div>
-          <div className="area-card card-purple area-card-labeled">
-            <span className="area-card-label">
-              視障輔助導航<br />
-              <small>Assistive Navigation · Ground Plane Estimation</small>
-            </span>
+          <div className="info-right">
+            <hr className="section-divider" />
+            <div className="info-card" data-reveal="fade">
+              <img
+                className="info-card-image"
+                src={wasedaImg}
+                alt="早稻田大學情報生產系統研究科"
+                data-reveal="slide"
+              />
+              <h3>早稻田大學 IPS 研究院 · 碩士</h3>
+              <p className="info-meta">2023 – 2025 · 情報生產系統研究科 集成系統領域 · 福岡北九州</p>
+              <p className="info-desc">
+                影像資訊系統實驗室（Image Information System Lab），指導教授：池永 剛。
+                實驗室由副院長領導，每週兩次英文 Meeting，
+                與中國東南大學、日本 Panasonic 具合作關係。
+              </p>
+            </div>
+            <hr className="section-divider" />
+            <div className="info-card" data-reveal="fade">
+              <h3>國立臺北科技大學 · 學士</h3>
+              <p className="info-meta">2020 – 2023 · 電資學士班 主修資訊工程</p>
+              <p className="info-desc">
+                GPA 3.8 / 4.0，系排名前 7%（5 / 71），最後一學期單學期系排名第一。
+                曾任程式設計社幹部、系學會副會長、新生迎新隔宿露營總召。
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -87,18 +116,22 @@ export default function App() {
       {/* PUBLICATIONS SECTION */}
       <section className="records-section" id="thesis">
         <hr className="section-divider" />
-        <h2 className="section-title">畢業論文</h2>
+        <h2 className="section-title" data-reveal="fade">畢業論文</h2>
         <div className="records-layout">
-          <div className="info-left">
+          <div className="info-left" data-reveal="fade">
             <hr className="section-divider" />
             <p className="info-description">
-              以幾何方法與視覺感知為核心，研究如何讓視障者在真實環境中
-              安全且可靠地識別周遭障礙物。
+              視覺 SLAM、3D 感知與視障輔助導航。研究領域涵蓋電腦視覺（Computer Vision）、
+              視覺 SLAM（Visual SLAM）與三維點雲處理（3D Point Cloud Processing），
+              核心目標為建立適用於視障者的輔助導航系統，以及浮空障礙物
+              （Floating Obstacle）的辨識技術。具備以 RGB 影像、點雲與相機姿態資訊
+              建構環境理解系統的實務經驗，並曾深入修改 ORB-SLAM3 原始碼，
+              支援姿態輸出、點雲投影與語意資訊整合。
             </p>
           </div>
           <div className="info-right">
             <hr className="section-divider" />
-            <div className="info-card">
+            <div className="info-card" data-reveal="fade">
               <h3>
                 碩士論文：3D Boundary Integration-Based Stair Region Reconstruction
                 in Floating Object Detection for Visually Impaired People
@@ -114,12 +147,12 @@ export default function App() {
                 （上行 0.36 → 0.73、下行 0.73 → 0.91）。
               </p>
               <a href={posterImg} target="_blank" rel="noopener noreferrer" className="poster-link">
-                <img className="poster-image" src={posterImg} alt="碩士論文研究海報" />
+                <img className="poster-image" src={posterImg} alt="碩士論文研究海報" data-reveal="slide" />
                 <span className="explore-link">點擊查看完整海報 &gt;</span>
               </a>
             </div>
             <hr className="section-divider" />
-            <div className="info-card">
+            <div className="info-card" data-reveal="fade">
               <h3>ORB-SLAM3 修改與擴充</h3>
               <p className="info-meta">
                 C++ · ROS · Semantic Mapping · Point Cloud Projection
@@ -134,107 +167,63 @@ export default function App() {
         </div>
       </section>
 
-      {/* EDUCATION SECTION */}
-      <section className="records-section" id="education">
+      {/* WORK EXPERIENCE SECTION */}
+      <section className="records-section" id="experience">
         <hr className="section-divider" />
-        <h2 className="section-title">學歷</h2>
+        <h2 className="section-title" data-reveal="fade">工作經歷</h2>
         <div className="records-layout">
-          <div className="info-left">
+          <div className="info-left" data-reveal="fade">
             <hr className="section-divider" />
             <p className="info-description">
-              從資訊工程紮根，到影像資訊系統的專門研究。
+              替代役期間服務於臺中市警察局第二分局，
+              日常勤務為巡邏出勤與值班台，並運用課餘時間以程式自動化協助改善派出所行政流程。
+            </p>
+            <p className="info-description">
+              服勤期間積極把握機會，榮譽假拿滿，並考取 EMT1（緊急救護技術員）、
+              防災士等證照。
             </p>
           </div>
           <div className="info-right">
             <hr className="section-divider" />
-            <div className="info-card">
-              <h3>早稻田大學 IPS 研究院 · 碩士</h3>
-              <p className="info-meta">2023 – 2025 · 情報生產系統研究科 集成系統領域 · 福岡北九州</p>
+            <div className="info-card" data-reveal="fade">
+              <h3>臺中市警察局第二分局 · 替代役</h3>
+              <p className="info-meta">本職勤務外自主改善 · Python 自動化工具 · 已實際導入使用</p>
               <p className="info-desc">
-                影像資訊系統實驗室（Image Information System Lab），指導教授：池永 剛。
-                實驗室由副院長領導，每週兩次英文 Meeting，
-                與中國東南大學、日本 Panasonic 具合作關係。
+                服替代役期間，於本職勤務外改善單位每月人工排班流程，
+                設計並開發自動化工具，已實際導入使用。服勤期間累積敘獎，
+                <strong>榮譽假核給達上限</strong>。
               </p>
-            </div>
-            <hr className="section-divider" />
-            <div className="info-card">
-              <h3>國立臺北科技大學 · 學士</h3>
-              <p className="info-meta">2020 – 2023 · 電資學士班 主修資訊工程</p>
               <p className="info-desc">
-                GPA 3.8 / 4.0，系排名前 7%（5 / 71），最後一學期單學期系排名第一。
-                曾任程式設計社幹部、系學會副會長、新生迎新隔宿露營總召。
+                排班、輪休核假、巡簽統計、民防通知書等流程原需大量人工比對與重複作業，
+                單靠 Python 腳本即可解決，技術門檻本身並不高，
+                我覺得這件事比較能代表我的一個特質，就是我不太會只把自己限制在職務說明裡面。
+                <strong>只要我看到一個明確的問題，而且判斷自己有機會解決，
+                我通常會想辦法把它做出來，而不是等別人交辦。</strong>
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* WORK EXPERIENCE SECTION */}
-      <section className="records-section" id="experience">
+      {/* CORE AREAS SECTION */}
+      <section className="areas-section" id="research">
         <hr className="section-divider" />
-        <h2 className="section-title">工作經歷</h2>
-        <div className="records-layout">
-          <div className="info-left">
-            <hr className="section-divider" />
-            <p className="info-description">
-              替代役期間服務於臺中市警察局第二分局，
-              日常勤務為巡邏出勤與值班台。
-              運用課餘時間以程式自動化協助改善派出所行政流程，
-              並將工具打包為圖形介面執行檔，讓非工程背景的同仁能持續使用，
-              另協助製作分局宣導影片與簡報。
-            </p>
+        <h2 className="section-title" data-reveal="fade">核心研究領域</h2>
+        <div className="areas-grid">
+          <div className="area-card" data-reveal="fade">
+            <div className="area-pattern card-dark"></div>
+            <h3>視覺 SLAM</h3>
+            <span className="area-card-meta">Visual SLAM · ORB-SLAM2 / ORB-SLAM3</span>
           </div>
-          <div className="info-right">
-            <hr className="section-divider" />
-            <div className="info-card">
-              <h3>每日排班工具</h3>
-              <p className="info-meta">Python · GUI · PyInstaller 打包 · Word / Excel 自動生成</p>
-              <p className="info-desc">
-                原人工流程需每日手動輪轉排班順序、確認請假並逐一修改班表，約 30 分鐘。
-                工具只需輸入第一班人員與當日請假者，即依固定輪班順序自動生成
-                Word 勤務分配表與 Excel 班表，數秒完成。
-                以人員主檔（CSV）管理編制，附圖形介面並打包為獨立執行檔部署至所內電腦。
-              </p>
-            </div>
-            <hr className="section-divider" />
-            <div className="info-card">
-              <h3>每月輪休管理工具</h3>
-              <p className="info-meta">Python · GUI · Excel / Google 表單整合</p>
-              <p className="info-desc">
-                自動由上月大輪番表生成下月輪休表，
-                並整合 Google 表單請假通知與人員資料，自動推算每人請假日對應班號以供核假。
-                原人工作業約 3 小時，程式數秒完成。
-              </p>
-            </div>
-            <hr className="section-divider" />
-            <div className="info-card">
-              <h3>巡簽統計工具</h3>
-              <p className="info-meta">Python · PDF 解析 · GUI · Excel 報表</p>
-              <p className="info-desc">
-                自動解析各派出所「巡邏箱巡簽狀況報表」PDF，
-                彙整巡簽紀錄並產出 Excel 統計報表，
-                取代逐頁人工核對，同樣以圖形介面執行檔形式交付。
-              </p>
-            </div>
-            <hr className="section-divider" />
-            <div className="info-card">
-              <h3>民防召集通知書產生器</h3>
-              <p className="info-meta">Python · 名冊資料清理 · 郵件合併</p>
-              <p className="info-desc">
-                將民防中隊各分隊名冊（Word / 純文字）整理為結構化 Excel，
-                依訓練類型（常年訓練、幹部訓練）自動郵件合併生成全體人員召集通知書。
-              </p>
-            </div>
-            <hr className="section-divider" />
-            <div className="info-card">
-              <h3>防空避難宣導教材製作</h3>
-              <p className="info-meta">影片剪輯 · TTS 配音 · 字幕 · 簡報設計</p>
-              <p className="info-desc">
-                製作分局自製「警政服務 APP／LINE 官方帳號防空避難專區」操作教學影片
-                （含配音與字幕），並協助全社會防衛韌性與防救災宣講、
-                跨年晚會安維勤務等簡報製作。
-              </p>
-            </div>
+          <div className="area-card" data-reveal="fade">
+            <div className="area-pattern card-green"></div>
+            <h3>三維點雲處理</h3>
+            <span className="area-card-meta">3D Point Cloud · PCL · RANSAC</span>
+          </div>
+          <div className="area-card" data-reveal="fade">
+            <div className="area-pattern card-purple"></div>
+            <h3>視障輔助導航</h3>
+            <span className="area-card-meta">Assistive Navigation · Ground Plane Estimation</span>
           </div>
         </div>
       </section>
@@ -242,9 +231,9 @@ export default function App() {
       {/* SIDE PROJECTS SECTION */}
       <section className="side-projects-section">
         <hr className="section-divider" />
-        <h2 className="section-title">副專案</h2>
+        <h2 className="section-title" data-reveal="fade">副專案</h2>
         <div className="side-projects-layout">
-          <div className="side-left">
+          <div className="side-left" data-reveal="fade">
             <hr className="section-divider" />
             <p className="side-description">
               研究之外的創作專案，以遊戲設計探索敘事與介面互動。
@@ -257,6 +246,7 @@ export default function App() {
               href="/game/index.html"
               target="_blank"
               rel="noopener noreferrer"
+              data-reveal="fade"
             >
               <div className="side-project-bg card-purple"></div>
               <div className="side-project-info">
@@ -276,15 +266,15 @@ export default function App() {
       {/* COLLABORATE SECTION */}
       <section className="collaborate-section" id="contact">
         <hr className="section-divider" />
-        <h2 className="section-title">合作邀請</h2>
+        <h2 className="section-title" data-reveal="fade">合作邀請</h2>
         <div className="collaborate-layout">
-          <div className="collab-left">
+          <div className="collab-left" data-reveal="fade">
             <hr className="section-divider" />
             <p className="collab-text">
               歡迎電腦視覺與機器人工程相關職缺洽詢。
             </p>
           </div>
-          <div className="collab-right">
+          <div className="collab-right" data-reveal="fade">
             <hr className="section-divider" />
             <a href="mailto:brian1030028@gmail.com" className="explore-link">
               brian1030028@gmail.com &gt;
@@ -298,7 +288,7 @@ export default function App() {
         <hr className="footer-top-divider" />
         <div className="footer-brand">
           <span className="footer-icon">沈</span>
-          <span className="footer-name">沈志謙　SHEN CHIH-CHIEN</span>
+          <span className="footer-name">沈志謙 SHEN CHIH-CHIEN</span>
         </div>
         <div className="footer-grid">
           <div className="footer-col">
@@ -307,7 +297,7 @@ export default function App() {
           </div>
           <div className="footer-col">
             <hr className="footer-divider" />
-            <p>早稻田大學 IPS 研究院<br />福岡北九州，日本</p>
+            <p>台灣桃園</p>
           </div>
           <div className="footer-col">
             <hr className="footer-divider" />

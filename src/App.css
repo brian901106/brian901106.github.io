@@ -225,15 +225,6 @@ a {
   border-bottom: 1px solid var(--rule);
 }
 
-.area-card-meta {
-  display: block;
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--ink-muted);
-  padding-top: 18px;
-  line-height: 1.7;
-}
-
 .card-dark {
   background-color: #ededed;
   background-image:
@@ -251,6 +242,50 @@ a {
   background-color: #efeaf4;
   background-image: radial-gradient(circle, #c4afd4 1.5px, transparent 1.5px);
   background-size: 14px 14px;
+}
+
+/* ---- PROJECT CARDS ---- */
+.keyword-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 40px 0 0;
+  padding: 0;
+}
+
+.keyword-list li {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--ink-soft);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 6px 14px;
+  line-height: 1.4;
+}
+
+.project-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: #f2f2f2;
+}
+
+.project-card h3 {
+  font-size: 22px;
+  border-top: none;
+}
+
+.project-card .info-meta {
+  padding: 12px 0 0;
+}
+
+.project-desc {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--ink-soft);
+  margin-top: 8px;
 }
 
 /* ---- RECORDS (THESIS / EDUCATION / EXPERIENCE) ---- */
@@ -519,11 +554,11 @@ a {
     animation: motion-slideIn 1200ms cubic-bezier(0.645, 0.045, 0.355, 1) backwards;
   }
 
-  .areas-grid > .area-card:nth-child(2)[data-reveal-state='done'] {
+  .areas-grid > .area-card:nth-child(3n + 2)[data-reveal-state='done'] {
     animation-delay: 100ms;
   }
 
-  .areas-grid > .area-card:nth-child(3)[data-reveal-state='done'] {
+  .areas-grid > .area-card:nth-child(3n + 3)[data-reveal-state='done'] {
     animation-delay: 200ms;
   }
 

@@ -3,6 +3,7 @@ import './App.css'
 import posterImg from './assets/poster.png'
 import wasedaImg from './assets/waseda.jpg'
 import portraitImg from './assets/portrait.jpg'
+import heroImg from './assets/hero-floating-obstacle.jpg'
 import stairImg from './assets/projects/stair-research.jpg'
 import faceLive2dImg from './assets/projects/face-live2d.jpg'
 import fpgaCalcImg from './assets/projects/fpga-calculator.jpg'
@@ -141,7 +142,7 @@ export default function App() {
 
       {/* VISUAL BANNER + PORTRAIT */}
       <section className="banner-section">
-        <div className="banner-grid" data-reveal="slide"></div>
+        <img className="banner-photo" src={heroImg} alt="樓梯下方的懸浮障礙物（紅色標示區域），白手杖掃不到頭部高度的危險" data-reveal="slide" />
         <div className="banner-portrait">
           <img className="portrait-placeholder" src={portraitImg} alt="沈志謙" data-reveal="slide" />
           <p className="banner-bio" data-reveal="fade">

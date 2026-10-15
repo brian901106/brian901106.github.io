@@ -288,6 +288,16 @@ a {
   margin-top: 8px;
 }
 
+/* 專案卡最後一格的裝飾網點，沿用首頁 .banner-grid 的背景 */
+.project-dot-cell {
+  pointer-events: none;
+}
+
+.project-dot-tile {
+  flex: 1;
+  min-height: 0;
+}
+
 /* ---- RECORDS (THESIS / EDUCATION / EXPERIENCE) ---- */
 .records-section {
   padding: 90px 0;
@@ -574,6 +584,7 @@ a {
   .banner-grid { min-height: 220px; order: 2; }
   .portrait-placeholder { height: 300px; object-position: center 20%; }
   .areas-grid { grid-template-columns: 1fr; gap: 56px; }
+  .project-dot-cell { display: none; }
   .records-layout,
   .side-projects-layout,
   .collaborate-layout { grid-template-columns: 1fr; gap: 36px; }

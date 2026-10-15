@@ -9,6 +9,8 @@ import fpgaCalcImg from './assets/projects/fpga-calculator.jpg'
 import catchCoinImg from './assets/projects/catch-the-coin.jpg'
 import goldMinerImg from './assets/projects/gold-miner.jpg'
 import unityPuzzleImg from './assets/projects/unity-puzzle.jpg'
+import pipelineCpuImg from './assets/projects/pipeline-cpu.jpg'
+import stairSegImg from './assets/projects/stair-segmentation.jpg'
 
 const keywords = [
   'Visual SLAM',
@@ -22,32 +24,11 @@ const keywords = [
 
 const projects = [
   {
-    img: stairImg,
-    alt: '樓梯區域重建：Baseline 未偵測、提出方法偵測到懸浮障礙物',
-    title: '樓梯懸浮障礙物偵測',
-    meta: '碩士研究 · Visual SLAM · 點雲 · 2023/09 – 2025/09',
-    desc: '以單目影片 3D 重建，提出 3D 邊界整合補回破碎的樓梯邊界；偵測率 0.55 → 0.82，平均高度誤差 48.6 → 16.5 cm。',
-  },
-  {
     img: faceLive2dImg,
     alt: '以臉部特徵點驅動 Live2D 角色的網頁畫面',
     title: '臉部特徵點 × Live2D',
     meta: '北科電腦動畫課 · Face Landmark · 2022 秋',
     desc: '用臉部特徵點即時驅動網頁 Live2D 角色，並實際用於直播。',
-  },
-  {
-    img: fpgaCalcImg,
-    alt: 'FPGA 開發板上的七段顯示器計算機',
-    title: 'FPGA 計算機',
-    meta: 'Verilog · Quartus · FPGA · 2023/12',
-    desc: 'Verilog RTL → Testbench 模擬 → 合成 → 上板驗證，支援小數運算的電子計算機。',
-  },
-  {
-    img: catchCoinImg,
-    alt: 'Spartan-3 開發板接上 VGA 執行 Catch The Coin 遊戲',
-    title: 'Catch The Coin',
-    meta: 'Verilog · Spartan-3 · VGA · 2024/06',
-    desc: '自行實作 640×480 VGA 時序即時繪製畫面，按鈕操作接金幣、七段顯示器顯示分數。',
   },
   {
     img: goldMinerImg,
@@ -62,6 +43,41 @@ const projects = [
     title: 'Unity 雙人解謎遊戲',
     meta: 'Unity · C# · 北科畢業專題 · 2023',
     desc: '雙人合作解謎遊戲，負責主要 C# 遊戲程式。',
+  },
+  {
+    img: fpgaCalcImg,
+    alt: 'FPGA 開發板上的七段顯示器計算機',
+    title: 'FPGA 計算機',
+    meta: 'Verilog · Quartus · FPGA · 2023/12',
+    desc: 'Verilog RTL → Testbench 模擬 → 合成 → 上板驗證，支援小數運算的電子計算機。',
+  },
+  {
+    img: pipelineCpuImg,
+    alt: '16-bit 管線處理器的模擬波形：指令依序流過 ID、EX、MEM、WB 各級',
+    title: '16-bit 管線處理器',
+    meta: 'Verilog · Python · Design Compiler · 2024/02',
+    desc: '以 forwarding、stall 與 flush 處理 pipeline hazard，自行擴充 5 道指令並撰寫 Python 組譯器，以 Design Compiler 完成邏輯合成。',
+  },
+  {
+    img: catchCoinImg,
+    alt: 'Spartan-3 開發板接上 VGA 執行 Catch The Coin 遊戲',
+    title: 'Catch The Coin',
+    meta: 'Verilog · Spartan-3 · VGA · 2024/06',
+    desc: '自行實作 640×480 VGA 時序即時繪製畫面，按鈕操作接金幣、七段顯示器顯示分數。',
+  },
+  {
+    img: stairSegImg,
+    alt: '分割模型微調前後比較：微調後能分割出樓梯與地面',
+    title: '樓梯／地面分割模型微調',
+    meta: '碩士研究前期 · YOLOv8-seg · 遷移學習 · 2024',
+    desc: '以遷移學習微調分割模型，讓原本不認得樓梯的模型能分割樓梯與地面，並與 SAM2 比較後選定研究採用的方法。',
+  },
+  {
+    img: stairImg,
+    alt: '樓梯區域重建：Baseline 未偵測、提出方法偵測到懸浮障礙物',
+    title: '樓梯懸浮障礙物偵測',
+    meta: '碩士研究 · Visual SLAM · 點雲 · 2023/09 – 2025/09',
+    desc: '以單目影片 3D 重建，提出 3D 邊界整合補回破碎的樓梯邊界；偵測率 0.55 → 0.82，平均高度誤差 48.6 → 16.5 cm。',
   },
 ]
 
@@ -255,31 +271,8 @@ export default function App() {
               <p className="project-desc">{p.desc}</p>
             </article>
           ))}
-        </div>
-      </section>
-
-      {/* HARDWARE PROJECTS SECTION */}
-      <section className="records-section" id="hardware">
-        <hr className="section-divider" />
-        <h2 className="section-title" data-reveal="fade">硬體實作</h2>
-        <div className="records-layout">
-          <div className="info-left" data-reveal="fade">
-            <hr className="section-divider" />
-            <p className="info-description">
-              Verilog RTL 設計、Testbench 模擬、合成到 FPGA 上板驗證，
-              理解演算法落地時的硬體限制。FPGA 計算機與 Catch The Coin 見上方專案。
-            </p>
-          </div>
-          <div className="info-right">
-            <hr className="section-divider" />
-            <div className="info-card" data-reveal="fade">
-              <h3>16-bit 管線處理器</h3>
-              <p className="info-meta">Verilog · Python · Design Compiler · 早稻田 System LSI Design / Microprocessor 課程 · 2023/12 – 2024/06</p>
-              <p className="info-desc">
-                實作 data forwarding、load-use stall 與分支 flush；自行擴充 5 道指令，
-                並以 Python 撰寫組譯器；以 Design Compiler 進行邏輯合成。
-              </p>
-            </div>
+          <div className="area-card project-dot-cell" aria-hidden="true">
+            <div className="banner-grid project-dot-tile"></div>
           </div>
         </div>
       </section>
@@ -422,9 +415,6 @@ export default function App() {
           </div>
           <div className="footer-col">
             <hr className="footer-divider" />
-            <p>
-              <a href="#hardware">硬體實作</a>
-            </p>
           </div>
           <div className="footer-col">
             <hr className="footer-divider" />

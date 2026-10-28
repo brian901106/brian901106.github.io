@@ -172,6 +172,12 @@ a {
   margin-bottom: 0;
 }
 
+/* 區塊標題下方的導言段落 */
+.section-lead {
+  max-width: 760px;
+  margin-top: 20px;
+}
+
 .section-note {
   font-family: var(--mono);
   font-size: 13px;

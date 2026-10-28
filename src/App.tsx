@@ -319,6 +319,11 @@ export default function App() {
       <section className="records-section" id="thesis">
         <hr className="section-divider" />
         <h2 className="section-title" data-reveal="fade">畢業論文</h2>
+        <p className="info-description section-lead" data-reveal="fade">
+          以單目相機影片重建 3D 場景，協助視障者避開頭部高度的懸浮障礙物。
+          研究涵蓋電腦視覺、視覺 SLAM、影像分割與三維點雲處理，
+          完整走過問題定義、方法設計、資料集拍攝到實驗分析的研究流程。
+        </p>
         <ul className="keyword-list" data-reveal="fade" aria-label="研究領域">
           <li>Computer Vision</li>
           <li>Visual SLAM</li>
@@ -330,12 +335,6 @@ export default function App() {
         </ul>
         <div className="records-layout">
           <div className="info-left" data-reveal="fade">
-            <hr className="section-divider" />
-            <p className="info-description">
-              以單目相機影片重建 3D 場景，協助視障者避開頭部高度的懸浮障礙物。
-              研究涵蓋電腦視覺、視覺 SLAM、影像分割與三維點雲處理，
-              完整走過問題定義、方法設計、資料集拍攝到實驗分析的研究流程。
-            </p>
             <hr className="section-divider" />
             <div className="info-card">
               <h3>語義點雲流程</h3>

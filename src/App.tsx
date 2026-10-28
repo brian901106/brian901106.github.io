@@ -57,9 +57,9 @@ const llmProjects = [
   {
     img: wikiRecallImg,
     alt: '散佈圖：各版本知識庫的讀取行數與 recall，V3 讀量約為原始文件的一半且 recall 未下降',
-    title: '群像劇情 LLM wiki（AI 代理知識庫實驗）',
-    meta: 'AI 代理知識庫 · LLM-as-judge · BM25 · 2026',
-    desc: '為 AI 代理設計知識庫入口與讀取路線；以 LLM-as-judge 盲評 6 個版本與 BM25，讀取行數約減半（1,230 → 592）且 recall 未下降（小樣本）。',
+    title: '多角色架空世界觀手遊：LLM wiki',
+    meta: '手機遊戲 · LLM wiki vs RAG · LLM-as-judge · BM25 · 2026',
+    desc: '角色、劇情與世界觀由 LLM 編寫並反覆修改，需交叉檢索角色語氣、關係與設定；比較 LLM wiki 與 RAG 後採用 LLM wiki。LLM-as-judge 盲評 6 個版本與 BM25：讀取行數約減半（1,230 → 592）、recall 未下降（小樣本）。',
   },
 ]
 

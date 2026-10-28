@@ -172,6 +172,11 @@ a {
   margin-bottom: 0;
 }
 
+/* 技能與社團證照左右並排，技能內容較多給寬一點 */
+.records-layout.skills-layout {
+  grid-template-columns: 1.5fr 1fr;
+}
+
 /* 區塊標題下方的導言段落 */
 .section-lead {
   max-width: 760px;
@@ -698,6 +703,7 @@ a {
   .timeline-image { width: 960px; max-width: none; }
   .timeline-hint { display: block; }
   .records-layout,
+  .records-layout.skills-layout,
   .side-projects-layout,
   .collaborate-layout { grid-template-columns: 1fr; gap: 36px; }
   .side-project-card { grid-template-columns: 1fr; gap: 24px; }

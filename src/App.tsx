@@ -407,13 +407,10 @@ export default function App() {
       <section className="records-section" id="skills">
         <hr className="section-divider" />
         <h2 className="section-title" data-reveal="fade">技能與活動</h2>
-        <div className="records-layout">
-          <div className="info-left" data-reveal="fade">
-            <hr className="section-divider" />
-            <p className="info-description">
-              電腦視覺與 3D 打底，延伸到 LLM 應用，輔以硬體設計經驗。
-            </p>
-          </div>
+        <p className="info-description section-lead" data-reveal="fade">
+          電腦視覺與 3D 打底，延伸到 LLM 應用，輔以硬體設計經驗。
+        </p>
+        <div className="records-layout skills-layout">
           <div className="info-right">
             <hr className="section-divider" />
             <div className="info-card" data-reveal="fade">
@@ -439,6 +436,8 @@ export default function App() {
                 <strong>語言：</strong>中文（母語）、英文（研究所全英文授課與研究）、日文（日本留學兩年）
               </p>
             </div>
+          </div>
+          <div className="info-right">
             <hr className="section-divider" />
             <div className="info-card" data-reveal="fade">
               <h3>社團與證照</h3>

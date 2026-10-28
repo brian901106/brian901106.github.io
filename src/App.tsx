@@ -31,9 +31,8 @@ const llmKeywords = [
   'Web Search',
   'Claude／OpenAI',
   'Prompt Caching',
-  'Guardrail',
   '模型路由',
-  'LLM-as-judge',
+  'Human-in-the-Loop',
   'BM25',
 ]
 
@@ -50,8 +49,8 @@ const llmProjects = [
     img: homieImg,
     alt: 'Homie 日語家教模式的實機畫面：倉鼠角色むぎ的對話、速查與小提醒',
     title: 'Homie 多語言學習 APP（日語家教模式）',
-    meta: 'Prompt Caching · Guardrail · 模型路由 · VOICEVOX · 2026',
-    desc: '雲端 LLM 對話＋地端神經語音合成 VOICEVOX；三層 guardrail、模型路由與降級；prompt caching 實測 46% 輸入 token 由快取讀取。本機 LLM 介面預留給規劃中的本地台語 LLM。',
+    meta: 'Prompt Caching · 模型路由 · VOICEVOX · 2026',
+    desc: '雲端 LLM 對話＋地端神經語音合成 VOICEVOX；模型路由與降級；prompt caching 實測 46% 輸入 token 由快取讀取。本機 LLM 介面預留給規劃中的本地台語 LLM。',
   },
   {
     img: wikiRecallImg,
@@ -436,7 +435,7 @@ export default function App() {
                 YOLOv8-seg、點雲處理、平面重建（GoCoPP）、2D–3D 融合
               </p>
               <p className="info-desc">
-                <strong>LLM 應用：</strong>Claude／OpenAI API、Structured Outputs、Prompt Caching、Guardrail、
+                <strong>LLM 應用：</strong>Claude／OpenAI API、Structured Outputs、Prompt Caching、
                 模型路由、RAG（BM25、hybrid 檢索＋rerank）、LLM-as-judge 評測、QLoRA 微調
               </p>
               <p className="info-desc">

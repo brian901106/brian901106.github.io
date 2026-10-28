@@ -314,14 +314,19 @@ export default function App() {
         <h2 className="section-title" data-reveal="fade">畢業論文</h2>
         <ul className="keyword-list" data-reveal="fade" aria-label="研究領域">
           <li>Computer Vision</li>
+          <li>Visual SLAM</li>
+          <li>單目 3D 重建</li>
+          <li>影像分割（SAM2）</li>
+          <li>3D 點雲處理</li>
+          <li>2D–3D 語義融合</li>
+          <li>平面重建（GoCoPP）</li>
         </ul>
         <div className="records-layout">
           <div className="info-left" data-reveal="fade">
             <hr className="section-divider" />
             <p className="info-description">
               以單目相機影片重建 3D 場景，協助視障者避開頭部高度的懸浮障礙物。
-              研究涵蓋電腦視覺（Computer Vision）、視覺 SLAM（Visual SLAM）、
-              影像分割與三維點雲處理（3D Point Cloud Processing），
+              研究涵蓋電腦視覺、視覺 SLAM、影像分割與三維點雲處理，
               完整走過問題定義、方法設計、資料集拍攝到實驗分析的研究流程。
             </p>
             <hr className="section-divider" />

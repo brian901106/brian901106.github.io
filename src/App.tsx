@@ -50,7 +50,7 @@ const llmProjects = [
     alt: 'Homie 日語家教模式的實機畫面：倉鼠角色むぎ的對話、速查與小提醒',
     title: 'Homie 多語言學習 APP（日語家教模式）',
     meta: 'Prompt Caching · 模型路由 · VOICEVOX · 2026',
-    desc: '雲端 LLM 對話＋地端神經語音合成 VOICEVOX；模型路由與降級；prompt caching 實測 46% 輸入 token 由快取讀取。本機 LLM 介面預留給規劃中的本地台語 LLM。',
+    desc: '雲端 LLM 對話＋地端神經語音合成 VOICEVOX；三層 guardrail、模型路由與降級；prompt caching 實測 46% 輸入 token 由快取讀取。本機 LLM 介面預留給規劃中的本地台語 LLM。',
   },
   {
     img: wikiRecallImg,

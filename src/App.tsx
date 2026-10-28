@@ -3,7 +3,6 @@ import './App.css'
 import posterImg from './assets/poster.png'
 import wasedaImg from './assets/waseda.jpg'
 import portraitImg from './assets/portrait.jpg'
-import heroImg from './assets/hero-floating-obstacle.jpg'
 import stairImg from './assets/projects/stair-research.jpg'
 import faceLive2dImg from './assets/projects/face-live2d.jpg'
 import fpgaCalcImg from './assets/projects/fpga-calculator.jpg'
@@ -197,9 +196,40 @@ export default function App() {
         </p>
       </section>
 
-      {/* VISUAL BANNER + PORTRAIT */}
-      <section className="banner-section">
-        <img className="banner-photo" src={heroImg} alt="樓梯下方的懸浮障礙物（紅色標示區域），白手杖掃不到頭部高度的危險" data-reveal="slide" />
+      {/* EDUCATION + PORTRAIT */}
+      <section className="banner-section" id="education">
+        <div className="banner-edu">
+          <h2 className="section-title" data-reveal="fade">學歷</h2>
+          <p className="info-description" data-reveal="fade">
+            從資訊工程紮根，到影像資訊系統的專門研究。
+          </p>
+          <hr className="section-divider" />
+          <div className="info-card" data-reveal="fade">
+            <img
+              className="info-card-image"
+              src={wasedaImg}
+              alt="早稻田大學情報生產系統研究科"
+              data-reveal="slide"
+            />
+            <h3>早稻田大學 IPS 研究院 · 碩士</h3>
+            <p className="info-meta">2023/09 – 2025/09 · 情報生產系統研究科（IPS）· 福岡北九州</p>
+            <p className="info-desc">
+              影像情報系統研究室（Image Information Systems Lab），指導教授：池永 剛（Takeshi Ikenaga）。
+              全英文授課與研究，每週 2–3 次英文進度報告。
+            </p>
+            <p className="info-desc">
+              研究主題：以 3D 重建協助視障者在真實世界中避開懸浮障礙物。
+            </p>
+          </div>
+          <hr className="section-divider" />
+          <div className="info-card" data-reveal="fade">
+            <h3>國立臺北科技大學 · 學士</h3>
+            <p className="info-meta">2020/09 – 2023/06 · 電資學士班 資訊工程系</p>
+            <p className="info-desc">
+              3 年修完 144 學分；GPA 3.80 / 4.0，系排名前 7%（5 / 71），最後一學期系排名第一。
+            </p>
+          </div>
+        </div>
         <div className="banner-portrait">
           <img className="portrait-placeholder" src={portraitImg} alt="沈志謙" data-reveal="slide" />
           <p className="banner-bio" data-reveal="fade">
@@ -213,45 +243,25 @@ export default function App() {
         </div>
       </section>
 
-      {/* EDUCATION SECTION */}
-      <section className="records-section" id="education">
+      {/* TIMELINE SECTION */}
+      <section className="areas-section" id="timeline">
         <hr className="section-divider" />
-        <h2 className="section-title" data-reveal="fade">學歷</h2>
-        <div className="records-layout">
-          <div className="info-left" data-reveal="fade">
-            <hr className="section-divider" />
-            <p className="info-description">
-              從資訊工程紮根，到影像資訊系統的專門研究。
-            </p>
-          </div>
-          <div className="info-right">
-            <hr className="section-divider" />
-            <div className="info-card" data-reveal="fade">
+        <h2 className="section-title" data-reveal="fade">專案時間軸</h2>
+        <div className="timeline-block">
+          <p className="timeline-hint">← 左右滑動查看 →</p>
+          <div className="timeline-scroll">
+            <a href={timelineImg} target="_blank" rel="noopener noreferrer">
               <img
-                className="info-card-image"
-                src={wasedaImg}
-                alt="早稻田大學情報生產系統研究科"
-                data-reveal="slide"
+                className="timeline-image"
+                src={timelineImg}
+                alt="2022–2026 專案時間軸：電腦視覺研究、硬體、課程專題、實務工具與 LLM 應用"
+                loading="lazy"
               />
-              <h3>早稻田大學 IPS 研究院 · 碩士</h3>
-              <p className="info-meta">2023/09 – 2025/09 · 情報生產系統研究科（IPS）· 福岡北九州</p>
-              <p className="info-desc">
-                影像情報系統研究室（Image Information Systems Lab），指導教授：池永 剛（Takeshi Ikenaga）。
-                全英文授課與研究，每週 2–3 次英文進度報告。
-              </p>
-              <p className="info-desc">
-                研究主題：以 3D 重建協助視障者在真實世界中避開懸浮障礙物。
-              </p>
-            </div>
-            <hr className="section-divider" />
-            <div className="info-card" data-reveal="fade">
-              <h3>國立臺北科技大學 · 學士</h3>
-              <p className="info-meta">2020/09 – 2023/06 · 電資學士班 資訊工程系</p>
-              <p className="info-desc">
-                3 年修完 144 學分；GPA 3.80 / 4.0，系排名前 7%（5 / 71），最後一學期系排名第一。
-              </p>
-            </div>
+            </a>
           </div>
+          <a href={timelineImg} target="_blank" rel="noopener noreferrer" className="explore-link">
+            點擊查看完整時間軸 &gt;
+          </a>
         </div>
       </section>
 
@@ -359,6 +369,7 @@ export default function App() {
       <section className="areas-section" id="projects">
         <hr className="section-divider" />
         <h2 className="section-title" data-reveal="fade">CV 與硬體專案</h2>
+        <p className="section-note" data-reveal="fade">非提示詞工程：以下專案皆為親自撰寫程式、實作完成。</p>
         <ul className="keyword-list" data-reveal="fade" aria-label="涉及領域">
           {keywords.map((k) => (
             <li key={k}>{k}</li>
@@ -376,22 +387,6 @@ export default function App() {
           <div className="area-card project-dot-cell" aria-hidden="true">
             <div className="banner-grid project-dot-tile"></div>
           </div>
-        </div>
-        <div className="timeline-block">
-          <p className="timeline-hint">← 左右滑動查看 →</p>
-          <div className="timeline-scroll">
-            <a href={timelineImg} target="_blank" rel="noopener noreferrer">
-              <img
-                className="timeline-image"
-                src={timelineImg}
-                alt="2022–2026 專案時間軸：電腦視覺研究、硬體、課程專題、實務工具與 LLM 應用"
-                loading="lazy"
-              />
-            </a>
-          </div>
-          <a href={timelineImg} target="_blank" rel="noopener noreferrer" className="explore-link">
-            點擊查看完整時間軸 &gt;
-          </a>
         </div>
       </section>
 

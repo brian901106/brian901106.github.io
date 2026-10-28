@@ -153,6 +153,24 @@ a {
   object-fit: cover;
 }
 
+/* 首頁左欄：學歷 */
+.banner-edu {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.banner-edu .section-title {
+  margin-bottom: 18px;
+}
+
+.section-note {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--ink-muted);
+  margin-top: 16px;
+}
+
 .banner-portrait {
   display: flex;
   flex-direction: column;
@@ -647,6 +665,7 @@ a {
 @media (max-width: 768px) {
   .site-wrapper { padding: 0 24px; }
   .banner-section { grid-template-columns: 1fr; }
+  .banner-portrait { order: -1; }
   .banner-grid { min-height: 220px; order: 2; }
   .portrait-placeholder { height: 300px; object-position: center 20%; }
   .areas-grid { grid-template-columns: 1fr; gap: 56px; }

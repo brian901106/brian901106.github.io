@@ -180,8 +180,8 @@ export default function App() {
           <a href="#llm">LLM</a>
           <a href="#thesis">研究</a>
           <a href="#projects">專案</a>
-          <a href="#experience">經歷</a>
           <a href="#skills">技能</a>
+          <a href="#experience">經歷</a>
           <a href="#contact">聯絡</a>
         </nav>
       </header>
@@ -389,32 +389,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* WORK EXPERIENCE SECTION */}
-      <section className="records-section" id="experience">
-        <hr className="section-divider" />
-        <h2 className="section-title" data-reveal="fade">經歷</h2>
-        <div className="records-layout">
-          <div className="info-left" data-reveal="fade">
-            <hr className="section-divider" />
-            <p className="info-description">
-              已役畢（替代役，2026/08/17），可即刻到職。
-            </p>
-          </div>
-          <div className="info-right">
-            <hr className="section-divider" />
-            <div className="info-card" data-reveal="fade">
-              <h3>替代役 · 臺中市政府警察局第二分局</h3>
-              <p className="info-meta">2026/02 – 2026/08 · Python · Spec 文件 · 提示詞工程</p>
-              <p className="info-desc">
-                以 spec 文件＋提示詞工程製作 Python 排班與輪休管理工具，
-                <strong>通過臺中市政府警察局內部資料安全審核</strong>，供同仁使用。
-                因表現優良獲<strong>榮譽假 7 天（上限）</strong>。
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* SKILLS & ACTIVITIES SECTION */}
       <section className="records-section" id="skills">
         <hr className="section-divider" />
@@ -460,6 +434,32 @@ export default function App() {
               </p>
               <p className="info-desc">
                 <strong>證照：</strong>防災士（2026）；初級救護技術員 EMT-1（2026）
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WORK EXPERIENCE SECTION */}
+      <section className="records-section" id="experience">
+        <hr className="section-divider" />
+        <h2 className="section-title" data-reveal="fade">經歷</h2>
+        <div className="records-layout">
+          <div className="info-left" data-reveal="fade">
+            <hr className="section-divider" />
+            <p className="info-description">
+              已役畢（替代役，2026/08/17），可即刻到職。
+            </p>
+          </div>
+          <div className="info-right">
+            <hr className="section-divider" />
+            <div className="info-card" data-reveal="fade">
+              <h3>替代役 · 臺中市政府警察局第二分局</h3>
+              <p className="info-meta">2026/02 – 2026/08 · Python · Spec 文件 · 提示詞工程</p>
+              <p className="info-desc">
+                以 spec 文件＋提示詞工程製作 Python 排班與輪休管理工具，
+                <strong>通過臺中市政府警察局內部資料安全審核</strong>，供同仁使用。
+                因表現優良獲<strong>榮譽假 7 天（上限）</strong>。
               </p>
             </div>
           </div>
@@ -530,8 +530,8 @@ export default function App() {
               <a href="#llm">LLM 應用</a><br />
               <a href="#thesis">研究</a><br />
               <a href="#projects">專案</a><br />
-              <a href="#experience">經歷</a><br />
               <a href="#skills">技能</a><br />
+              <a href="#experience">經歷</a><br />
               <a href="#contact">聯絡</a>
             </p>
           </div>

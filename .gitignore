@@ -29,3 +29,6 @@ old_site_backup.zip
 資料/
 icon.zip
 icon_extracted/
+
+# 暫存
+tmp/

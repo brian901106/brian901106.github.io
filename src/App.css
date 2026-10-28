@@ -306,6 +306,43 @@ a {
   min-height: 0;
 }
 
+/* LLM 卡片的外部連結 */
+.project-link {
+  margin-top: 14px;
+}
+
+/* 進行中卡片沒有截圖，以網點底占住圖片位置，左上角放狀態標籤 */
+.areas-grid--two {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* 加上父層提高權重，避免手機版 .banner-grid 的 min-height／order 撐寬卡片、把色塊移到文字下方 */
+.areas-grid--two .ongoing-tile {
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  min-height: 0;
+  order: 0;
+  position: relative;
+}
+
+.status-tag {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  padding: 4px 12px;
+  line-height: 1.4;
+}
+
+.timeline-link {
+  margin-top: 72px;
+}
+
 /* ---- RECORDS (THESIS / EDUCATION / EXPERIENCE) ---- */
 .records-section {
   padding: 90px 0;
@@ -593,6 +630,7 @@ a {
   .portrait-placeholder { height: 300px; object-position: center 20%; }
   .areas-grid { grid-template-columns: 1fr; gap: 56px; }
   .project-dot-cell { display: none; }
+  .areas-grid--two { grid-template-columns: 1fr; }
   .records-layout,
   .side-projects-layout,
   .collaborate-layout { grid-template-columns: 1fr; gap: 36px; }

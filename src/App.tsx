@@ -12,6 +12,10 @@ import goldMinerImg from './assets/projects/gold-miner.jpg'
 import unityPuzzleImg from './assets/projects/unity-puzzle.jpg'
 import pipelineCpuImg from './assets/projects/pipeline-cpu.jpg'
 import stairSegImg from './assets/projects/stair-segmentation.jpg'
+import foodKcalImg from './assets/projects/food-kcal.jpg'
+import homieImg from './assets/projects/homie-tutor.jpg'
+import wikiRecallImg from './assets/projects/llm-wiki-recall.jpg'
+import timelineImg from './assets/timeline.jpg'
 
 const keywords = [
   'Visual SLAM',
@@ -23,11 +27,63 @@ const keywords = [
   'Verilog／FPGA',
 ]
 
+const llmKeywords = [
+  'Structured Outputs',
+  'Web Search',
+  'Claude／OpenAI',
+  'Prompt Caching',
+  'Guardrail',
+  '模型路由',
+  'LLM-as-judge',
+  'BM25',
+]
+
+const llmProjects = [
+  {
+    img: foodKcalImg,
+    alt: '食物熱量 APP 的實機畫面：今日飲食紀錄、單餐確認、本機食物庫',
+    title: '食物拍照辨識熱量 APP',
+    meta: '開源 · Structured Outputs · Web Search · Claude／OpenAI · 2026',
+    desc: 'LLM 只辨識品名與克數並輸出結構化 JSON，熱量來自可核對的營養資料、由程式計算；網路搜尋的引用網址必須出自搜尋結果才採用。',
+    link: { href: 'https://github.com/brian901106/FoodKcalNotes', label: 'GitHub 原始碼' },
+  },
+  {
+    img: homieImg,
+    alt: 'Homie 日語家教模式的實機畫面：倉鼠角色むぎ的對話、速查與小提醒',
+    title: 'Homie 多語言學習 APP（日語家教模式）',
+    meta: 'Prompt Caching · Guardrail · 模型路由 · VOICEVOX · 2026',
+    desc: '雲端 LLM 對話＋地端神經語音合成 VOICEVOX；三層 guardrail、模型路由與降級；prompt caching 實測 46% 輸入 token 由快取讀取。本機 LLM 介面預留給規劃中的本地台語 LLM。',
+  },
+  {
+    img: wikiRecallImg,
+    alt: '散佈圖：各版本知識庫的讀取行數與 recall，V3 讀量約為原始文件的一半且 recall 未下降',
+    title: '群像劇情 LLM wiki（AI 代理知識庫實驗）',
+    meta: 'AI 代理知識庫 · LLM-as-judge · BM25 · 2026',
+    desc: '為 AI 代理設計知識庫入口與讀取路線；以 LLM-as-judge 盲評 6 個版本與 BM25，讀取行數約減半（1,230 → 592）且 recall 未下降（小樣本）。',
+  },
+]
+
+// 進行中專案沒有實機截圖，以網點底代替圖片
+const ongoingProjects = [
+  {
+    tile: 'banner-grid',
+    title: '台語 LLM 微調',
+    meta: 'QLoRA · Qwen2.5-1.5B · CPT／SFT · LLM-as-judge',
+    desc: 'QLoRA 微調 Qwen2.5-1.5B，訓練資料只取自教育部台語辭典；比較「先 CPT 再 SFT」與「只做 SFT」，以困惑度、chrF 與交換順序的 LLM 盲測裁判（sign test）評估。結論：CPT 在 SFT 後無可偵測增益；取樣解碼讓迴圈率 8.8% → 2.5%。',
+  },
+  {
+    tile: 'card-green',
+    title: 'RAG＋LLM wiki 開放世界遊戲（Mythweaver）',
+    meta: 'Hybrid 檢索 · Rerank · RAG · Tool Calling · Agent',
+    desc: '可匯入小說、以 D&D 規則遊玩。規則檢索以 hybrid 檢索＋rerank 融合，R@5 0.98；設計世界觀 RAG、世界線 wiki 與以工具呼叫驅動的 DM agent，架構實驗中。',
+  },
+]
+
 const projects = [
   {
     img: faceLive2dImg,
     alt: '以臉部特徵點驅動 Live2D 角色的網頁畫面',
-    title: '臉部特徵點 × Live2D',
+    title: '臉部特徵點驅動 Live2D',
     meta: '北科電腦動畫課 · Face Landmark · 2022 秋',
     desc: '用臉部特徵點即時驅動網頁 Live2D 角色，並實際用於直播。',
   },
@@ -123,6 +179,7 @@ export default function App() {
         <nav className="site-nav">
           <a href="#">首頁</a>
           <a href="#education">學歷</a>
+          <a href="#llm">LLM</a>
           <a href="#thesis">研究</a>
           <a href="#projects">專案</a>
           <a href="#experience">經歷</a>
@@ -136,7 +193,7 @@ export default function App() {
         <h1 className="hero-title" data-reveal="fade">沈志謙</h1>
         <hr className="section-divider" />
         <p className="hero-subtitle" data-reveal="fade">
-          早稻田大學碩士 · 電腦視覺／影像演算法工程師
+          AI Agent／電腦視覺／LLM 應用
         </p>
       </section>
 
@@ -146,9 +203,9 @@ export default function App() {
         <div className="banner-portrait">
           <img className="portrait-placeholder" src={portraitImg} alt="沈志謙" data-reveal="slide" />
           <p className="banner-bio" data-reveal="fade">
-            早稻田大學情報生產系統研究科（IPS）碩士，專長電腦視覺與 3D 重建。
-            碩士研究以 3D 重建協助視障者避開懸浮障礙物，在自行實拍的 22 段戶外樓梯影片上，
-            偵測率由 0.55 提升至 0.82。另具備 Verilog／FPGA 硬體實作經驗。
+            早稻田大學 IPS 碩士。從傳統影像處理與三維重建出發，到微調視覺模型、以 SAM2 分割建構語意點雲並偵測障礙物，
+            畢業後延伸到 LLM 應用與 AI agent。具備技術底子，也善用 AI 輔助開發，
+            並以研究的方法做決策：定義問題、實驗比較、驗證後再選擇。
           </p>
           <p className="banner-bio" data-reveal="fade">
             已役畢（替代役，2026/08）· 可即刻到職
@@ -195,6 +252,50 @@ export default function App() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* LLM APPLICATIONS SECTION */}
+      <section className="areas-section" id="llm">
+        <hr className="section-divider" />
+        <h2 className="section-title" data-reveal="fade">LLM 應用</h2>
+        <ul className="keyword-list" data-reveal="fade" aria-label="涉及技術">
+          {llmKeywords.map((k) => (
+            <li key={k}>{k}</li>
+          ))}
+        </ul>
+        <div className="areas-grid">
+          {llmProjects.map((p) => (
+            <article className="area-card project-card" data-reveal="fade" key={p.title}>
+              <img className="project-image" src={p.img} alt={p.alt} loading="lazy" />
+              <h3>{p.title}</h3>
+              <p className="info-meta">{p.meta}</p>
+              <p className="project-desc">{p.desc}</p>
+              {p.link && (
+                <a className="explore-link project-link" href={p.link.href} target="_blank" rel="noopener noreferrer">
+                  {p.link.label} &gt;
+                </a>
+              )}
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* ONGOING SECTION */}
+      <section className="areas-section" id="ongoing">
+        <hr className="section-divider" />
+        <h2 className="section-title" data-reveal="fade">進行中</h2>
+        <div className="areas-grid areas-grid--two">
+          {ongoingProjects.map((p) => (
+            <article className="area-card project-card" data-reveal="fade" key={p.title}>
+              <div className={`ongoing-tile ${p.tile}`} aria-hidden="true">
+                <span className="status-tag">進行中</span>
+              </div>
+              <h3>{p.title}</h3>
+              <p className="info-meta">{p.meta}</p>
+              <p className="project-desc">{p.desc}</p>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -257,7 +358,7 @@ export default function App() {
       {/* PROJECTS SECTION */}
       <section className="areas-section" id="projects">
         <hr className="section-divider" />
-        <h2 className="section-title" data-reveal="fade">專案</h2>
+        <h2 className="section-title" data-reveal="fade">CV 與硬體專案</h2>
         <ul className="keyword-list" data-reveal="fade" aria-label="涉及領域">
           {keywords.map((k) => (
             <li key={k}>{k}</li>
@@ -276,6 +377,16 @@ export default function App() {
             <div className="banner-grid project-dot-tile"></div>
           </div>
         </div>
+        <a href={timelineImg} target="_blank" rel="noopener noreferrer" className="poster-link timeline-link">
+          <img
+            className="poster-image"
+            src={timelineImg}
+            alt="2022–2026 專案時間軸：電腦視覺研究、硬體、課程專題、實務工具與 LLM 應用"
+            loading="lazy"
+            data-reveal="slide"
+          />
+          <span className="explore-link">點擊查看完整時間軸 &gt;</span>
+        </a>
       </section>
 
       {/* WORK EXPERIENCE SECTION */}
@@ -311,7 +422,7 @@ export default function App() {
           <div className="info-left" data-reveal="fade">
             <hr className="section-divider" />
             <p className="info-description">
-              以電腦視覺與 3D 為主，輔以硬體設計經驗。
+              電腦視覺與 3D 打底，延伸到 LLM 應用，輔以硬體設計經驗。
             </p>
           </div>
           <div className="info-right">
@@ -321,6 +432,10 @@ export default function App() {
               <p className="info-desc">
                 <strong>電腦視覺與 3D：</strong>OpenCV、Visual SLAM（ORB-SLAM3）、SAM／SAM2、
                 YOLOv8-seg、點雲處理、平面重建（GoCoPP）、2D–3D 融合
+              </p>
+              <p className="info-desc">
+                <strong>LLM 應用：</strong>Claude／OpenAI API、Structured Outputs、Prompt Caching、Guardrail、
+                模型路由、RAG（BM25、hybrid 檢索＋rerank）、LLM-as-judge 評測、QLoRA 微調
               </p>
               <p className="info-desc">
                 <strong>程式語言：</strong>Python、C／C++、C#、Verilog
@@ -358,13 +473,17 @@ export default function App() {
           <div className="collab-left" data-reveal="fade">
             <hr className="section-divider" />
             <p className="collab-text">
-              歡迎電腦視覺、影像演算法相關職缺洽詢。
+              歡迎 AI Agent、電腦視覺、LLM 應用相關職缺洽詢。
             </p>
           </div>
           <div className="collab-right" data-reveal="fade">
             <hr className="section-divider" />
             <a href="mailto:brian1030028@gmail.com" className="explore-link">
               brian1030028@gmail.com &gt;
+            </a>
+            <br />
+            <a href="https://github.com/brian901106" target="_blank" rel="noopener noreferrer" className="explore-link">
+              github.com/brian901106 &gt;
             </a>
           </div>
         </div>
@@ -407,6 +526,7 @@ export default function App() {
             <p>
               <a href="#">首頁</a><br />
               <a href="#education">學歷</a><br />
+              <a href="#llm">LLM 應用</a><br />
               <a href="#thesis">研究</a><br />
               <a href="#projects">專案</a><br />
               <a href="#experience">經歷</a><br />

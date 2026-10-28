@@ -185,9 +185,10 @@ a {
   gap: 18px;
 }
 
+/* 高度與 .info-card-image 相同，讓大頭照與早稻田照片上下緣對齊 */
 .portrait-placeholder {
   width: 100%;
-  height: 340px;
+  height: 260px;
   object-fit: cover;
   background: #e8e8e8;
 }

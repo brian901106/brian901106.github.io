@@ -242,6 +242,9 @@ export default function App() {
           <p className="banner-bio" data-reveal="fade">
             已役畢（替代役，2026/08/17）· 可即刻到職
           </p>
+          <a href="https://github.com/brian901106" target="_blank" rel="noopener noreferrer" className="explore-link">
+            github.com/brian901106 &gt;
+          </a>
         </div>
       </section>
 

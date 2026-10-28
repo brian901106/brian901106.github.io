@@ -197,12 +197,15 @@ export default function App() {
 
       {/* EDUCATION + PORTRAIT */}
       <section className="banner-section" id="education">
-        <div className="banner-edu">
+        {/* 標題獨立跨兩欄，讓大頭照與早稻田照片的上緣對齊 */}
+        <div className="banner-head">
           <h2 className="section-title" data-reveal="fade">學歷</h2>
           <p className="info-description" data-reveal="fade">
             從資訊工程紮根，到影像資訊系統的專門研究。
           </p>
           <hr className="section-divider" />
+        </div>
+        <div className="banner-edu">
           <div className="info-card" data-reveal="fade">
             <img
               className="info-card-image"

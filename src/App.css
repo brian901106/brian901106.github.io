@@ -160,8 +160,16 @@ a {
   min-width: 0;
 }
 
-.banner-edu .section-title {
+.banner-head {
+  grid-column: 1 / -1;
+}
+
+.banner-head .section-title {
   margin-bottom: 18px;
+}
+
+.banner-head .section-divider {
+  margin-bottom: 0;
 }
 
 .section-note {

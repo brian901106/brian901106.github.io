@@ -204,12 +204,14 @@ a {
   background: #e8e8e8;
 }
 
+/* 與 .info-card h3 同大小；margin-top 補足 .info-card-image 的 24px 與欄位 gap 18px 的差，讓兩欄小標題上下緣對齊 */
 .banner-bio-title {
-  font-size: 22px;
+  font-size: clamp(22px, 2.4vw, 30px);
   font-weight: 400;
   color: var(--ink);
   line-height: 1.25;
-  padding-bottom: 12px;
+  padding-bottom: 16px;
+  margin-top: 6px;
   border-bottom: 1px solid var(--rule);
 }
 
@@ -261,9 +263,13 @@ a {
   margin-top: 56px;
 }
 
+/* 專案卡以 subgrid 共用列軌，同一排卡片的圖片、小標題、標籤、說明上下緣對齊 */
 .area-card {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-row: span 5;
+  grid-template-rows: subgrid;
+  row-gap: 0;
+  align-content: start;
 }
 
 .area-pattern {
@@ -349,7 +355,7 @@ a {
 }
 
 .project-dot-tile {
-  flex: 1;
+  grid-row: 1 / -1;
   min-height: 0;
 }
 
@@ -461,6 +467,22 @@ a {
   line-height: 1.25;
   padding-bottom: 16px;
   border-bottom: 1px solid var(--rule);
+}
+
+/* 小標題下方直接接內文時補上與 .info-meta 相同的間距 */
+.info-card h3 + .info-desc {
+  margin-top: 20px;
+}
+
+.thesis-title-en {
+  font-size: 17px;
+  color: var(--ink);
+  line-height: 1.6;
+  padding-top: 16px;
+}
+
+.thesis-title-en + .info-meta {
+  padding-top: 8px;
 }
 
 .info-meta {

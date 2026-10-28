@@ -334,13 +334,10 @@ export default function App() {
           <li>地面重建</li>
         </ul>
         <div className="records-layout">
-          <div className="info-left" data-reveal="fade">
+          <div className="info-right">
             <hr className="section-divider" />
-            <div className="info-card">
+            <div className="info-card" data-reveal="fade">
               <h3>語義點雲流程</h3>
-              <p className="info-meta">
-                Visual SLAM · Segmentation · 2D–3D Fusion · Semantic Point Cloud
-              </p>
               <p className="info-desc">
                 以 ORB-SLAM3、SAM2、GoCoPP 等現成開源工具，建立 SLAM 與影像分割結合的語義點雲流程，
                 將點雲分為地面、樓梯與物件；並調整特徵擷取讓點雲更集中在樓梯區域，處理單目 SLAM 的尺度問題。
@@ -350,10 +347,11 @@ export default function App() {
           <div className="info-right">
             <hr className="section-divider" />
             <div className="info-card" data-reveal="fade">
-              <h3>
-                碩士論文：3D Boundary Integration-Based Stair Region Reconstruction
+              <h3>碩士論文</h3>
+              <p className="thesis-title-en">
+                3D Boundary Integration-Based Stair Region Reconstruction
                 in Floating Object Detection for Visually Impaired People
-              </h3>
+              </p>
               <p className="info-meta">
                 Master Thesis · Visual SLAM · Segmentation · Point Cloud · 2023/09 – 2025/09
               </p>

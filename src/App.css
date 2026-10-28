@@ -215,6 +215,26 @@ a {
   border-bottom: 1px solid var(--rule);
 }
 
+/* 大頭照下方的經歷 */
+.banner-exp {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.banner-exp-title {
+  font-size: 16px;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+.banner-exp-meta {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-muted);
+  line-height: 1.7;
+}
+
 .banner-bio {
   font-size: 14px;
   color: var(--ink-muted);

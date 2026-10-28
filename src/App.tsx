@@ -181,7 +181,6 @@ export default function App() {
           <a href="#thesis">研究</a>
           <a href="#projects">專案</a>
           <a href="#skills">技能</a>
-          <a href="#experience">經歷</a>
           <a href="#contact">聯絡</a>
         </nav>
       </header>
@@ -240,6 +239,16 @@ export default function App() {
             畢業後延伸到 LLM 應用與 AI agent。具備技術底子，也善用 AI 輔助開發，
             並以研究的方法做決策：定義問題、實驗比較、驗證後再選擇。
           </p>
+          <h3 className="banner-bio-title" data-reveal="fade">經歷</h3>
+          <div className="banner-exp" data-reveal="fade">
+            <p className="banner-exp-title">替代役 · 臺中市政府警察局第二分局</p>
+            <p className="banner-exp-meta">2026/02 – 2026/08 · Python · Spec 文件 · 提示詞工程</p>
+            <p className="banner-bio">
+              以 spec 文件＋提示詞工程製作 Python 排班與輪休管理工具，
+              <strong>通過臺中市政府警察局內部資料安全審核</strong>，供同仁使用。
+              因表現優良獲<strong>榮譽假 7 天（上限）</strong>。
+            </p>
+          </div>
           <p className="banner-bio" data-reveal="fade">
             已役畢（替代役，2026/08/17）· 可即刻到職
           </p>
@@ -450,29 +459,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* WORK EXPERIENCE SECTION */}
-      <section className="records-section" id="experience">
-        <hr className="section-divider" />
-        <h2 className="section-title" data-reveal="fade">經歷</h2>
-        <p className="info-description section-lead" data-reveal="fade">
-          已役畢（替代役，2026/08/17），可即刻到職。
-        </p>
-        <div className="records-layout skills-layout">
-          <div className="info-right">
-            <hr className="section-divider" />
-            <div className="info-card" data-reveal="fade">
-              <h3>替代役 · 臺中市政府警察局第二分局</h3>
-              <p className="info-meta">2026/02 – 2026/08 · Python · Spec 文件 · 提示詞工程</p>
-              <p className="info-desc">
-                以 spec 文件＋提示詞工程製作 Python 排班與輪休管理工具，
-                <strong>通過臺中市政府警察局內部資料安全審核</strong>，供同仁使用。
-                因表現優良獲<strong>榮譽假 7 天（上限）</strong>。
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* COLLABORATE SECTION */}
       <section className="collaborate-section" id="contact">
         <hr className="section-divider" />
@@ -538,7 +524,6 @@ export default function App() {
               <a href="#thesis">研究</a><br />
               <a href="#projects">專案</a><br />
               <a href="#skills">技能</a><br />
-              <a href="#experience">經歷</a><br />
               <a href="#contact">聯絡</a>
             </p>
           </div>

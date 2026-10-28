@@ -56,8 +56,8 @@ const llmProjects = [
     img: wikiRecallImg,
     alt: '散佈圖：各版本知識庫的讀取行數與 recall，V3 讀量約為原始文件的一半且 recall 未下降',
     title: '多角色架空世界觀手遊：LLM wiki',
-    meta: '手機遊戲 · LLM wiki vs RAG · LLM-as-judge · BM25 · 2026',
-    desc: '角色、劇情與世界觀由 LLM 編寫並反覆修改，需交叉檢索角色語氣、關係與設定；比較 LLM wiki 與 RAG 後採用 LLM wiki。LLM-as-judge 盲評 6 個版本與 BM25：讀取行數約減半（1,230 → 592）、recall 未下降（小樣本）。',
+    meta: '手機遊戲 · LLM wiki vs RAG · Human-in-the-Loop · BM25 · 2026',
+    desc: '角色、劇情與世界觀由 LLM 編寫並反覆修改，需交叉檢索角色語氣、關係與設定；比較 LLM wiki 與 RAG 後採用 LLM wiki。Human-in-the-Loop 盲評 6 個版本與 BM25：讀取行數約減半（1,230 → 592）、recall 未下降（小樣本）。',
   },
 ]
 
@@ -66,7 +66,7 @@ const ongoingProjects = [
   {
     tile: 'banner-grid',
     title: '台語 LLM 微調',
-    meta: 'QLoRA · Qwen2.5-1.5B · CPT／SFT · LLM-as-judge',
+    meta: 'QLoRA · Qwen2.5-1.5B · CPT／SFT · Human-in-the-Loop',
     desc: 'QLoRA 微調 Qwen2.5-1.5B，訓練資料只取自教育部台語辭典；比較「先 CPT 再 SFT」與「只做 SFT」，以困惑度、chrF 與交換順序的 LLM 盲測裁判（sign test）評估。結論：CPT 在 SFT 後無可偵測增益；取樣解碼讓迴圈率 8.8% → 2.5%。',
   },
   {
@@ -436,7 +436,7 @@ export default function App() {
               </p>
               <p className="info-desc">
                 <strong>LLM 應用：</strong>Claude／OpenAI API、Structured Outputs、Prompt Caching、
-                模型路由、RAG（BM25、hybrid 檢索＋rerank）、LLM-as-judge 評測、QLoRA 微調
+                模型路由、RAG（BM25、hybrid 檢索＋rerank）、Human-in-the-Loop 評測、QLoRA 微調
               </p>
               <p className="info-desc">
                 <strong>程式語言：</strong>Python、C／C++、C#、Verilog

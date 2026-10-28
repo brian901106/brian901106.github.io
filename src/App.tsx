@@ -454,13 +454,10 @@ export default function App() {
       <section className="records-section" id="experience">
         <hr className="section-divider" />
         <h2 className="section-title" data-reveal="fade">經歷</h2>
-        <div className="records-layout">
-          <div className="info-left" data-reveal="fade">
-            <hr className="section-divider" />
-            <p className="info-description">
-              已役畢（替代役，2026/08/17），可即刻到職。
-            </p>
-          </div>
+        <p className="info-description section-lead" data-reveal="fade">
+          已役畢（替代役，2026/08/17），可即刻到職。
+        </p>
+        <div className="records-layout skills-layout">
           <div className="info-right">
             <hr className="section-divider" />
             <div className="info-card" data-reveal="fade">

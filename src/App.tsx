@@ -312,6 +312,7 @@ export default function App() {
       <section className="records-section" id="thesis">
         <hr className="section-divider" />
         <h2 className="section-title" data-reveal="fade">畢業論文</h2>
+        <p className="section-note" data-reveal="fade">Computer Vision</p>
         <div className="records-layout">
           <div className="info-left" data-reveal="fade">
             <hr className="section-divider" />
@@ -341,7 +342,7 @@ export default function App() {
                 in Floating Object Detection for Visually Impaired People
               </h3>
               <p className="info-meta">
-                Master Thesis · Computer Vision · Visual SLAM · Segmentation · Point Cloud · 2023/09 – 2025/09
+                Master Thesis · Visual SLAM · Segmentation · Point Cloud · 2023/09 – 2025/09
               </p>
               <p className="info-desc">
                 白手杖只能掃到地面，樹枝、招牌等頭部高度的懸浮障礙物難以察覺；

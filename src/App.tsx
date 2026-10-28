@@ -322,7 +322,7 @@ export default function App() {
           <li>影像分割（SAM2）</li>
           <li>3D 點雲處理</li>
           <li>2D–3D 語義融合</li>
-          <li>平面重建（GoCoPP）</li>
+          <li>地面重建</li>
         </ul>
         <div className="records-layout">
           <div className="info-left" data-reveal="fade">

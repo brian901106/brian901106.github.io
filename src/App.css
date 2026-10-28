@@ -474,17 +474,6 @@ a {
   margin-top: 20px;
 }
 
-.thesis-title-en {
-  font-size: 17px;
-  color: var(--ink);
-  line-height: 1.6;
-  padding-top: 16px;
-}
-
-.thesis-title-en + .info-meta {
-  padding-top: 8px;
-}
-
 .info-meta {
   font-family: var(--mono);
   font-size: 12px;

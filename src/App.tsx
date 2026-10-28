@@ -347,11 +347,10 @@ export default function App() {
           <div className="info-right">
             <hr className="section-divider" />
             <div className="info-card" data-reveal="fade">
-              <h3>碩士論文</h3>
-              <p className="thesis-title-en">
-                3D Boundary Integration-Based Stair Region Reconstruction
+              <h3>
+                碩士論文：3D Boundary Integration-Based Stair Region Reconstruction
                 in Floating Object Detection for Visually Impaired People
-              </p>
+              </h3>
               <p className="info-meta">
                 Master Thesis · Visual SLAM · Segmentation · Point Cloud · 2023/09 – 2025/09
               </p>

@@ -377,16 +377,22 @@ export default function App() {
             <div className="banner-grid project-dot-tile"></div>
           </div>
         </div>
-        <a href={timelineImg} target="_blank" rel="noopener noreferrer" className="poster-link timeline-link">
-          <img
-            className="poster-image"
-            src={timelineImg}
-            alt="2022–2026 專案時間軸：電腦視覺研究、硬體、課程專題、實務工具與 LLM 應用"
-            loading="lazy"
-            data-reveal="slide"
-          />
-          <span className="explore-link">點擊查看完整時間軸 &gt;</span>
-        </a>
+        <div className="timeline-block">
+          <p className="timeline-hint">← 左右滑動查看 →</p>
+          <div className="timeline-scroll">
+            <a href={timelineImg} target="_blank" rel="noopener noreferrer">
+              <img
+                className="timeline-image"
+                src={timelineImg}
+                alt="2022–2026 專案時間軸：電腦視覺研究、硬體、課程專題、實務工具與 LLM 應用"
+                loading="lazy"
+              />
+            </a>
+          </div>
+          <a href={timelineImg} target="_blank" rel="noopener noreferrer" className="explore-link">
+            點擊查看完整時間軸 &gt;
+          </a>
+        </div>
       </section>
 
       {/* WORK EXPERIENCE SECTION */}

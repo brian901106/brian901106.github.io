@@ -339,8 +339,29 @@ a {
   line-height: 1.4;
 }
 
-.timeline-link {
+/* 專案時間軸：手機寬度時保留可讀字級，改為橫向捲動 */
+.timeline-block {
   margin-top: 72px;
+}
+
+.timeline-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 14px;
+}
+
+.timeline-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.timeline-hint {
+  display: none;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-muted);
+  margin-bottom: 10px;
 }
 
 /* ---- RECORDS (THESIS / EDUCATION / EXPERIENCE) ---- */
@@ -631,6 +652,8 @@ a {
   .areas-grid { grid-template-columns: 1fr; gap: 56px; }
   .project-dot-cell { display: none; }
   .areas-grid--two { grid-template-columns: 1fr; }
+  .timeline-image { width: 960px; max-width: none; }
+  .timeline-hint { display: block; }
   .records-layout,
   .side-projects-layout,
   .collaborate-layout { grid-template-columns: 1fr; gap: 36px; }

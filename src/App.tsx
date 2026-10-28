@@ -238,7 +238,7 @@ export default function App() {
             並以研究的方法做決策：定義問題、實驗比較、驗證後再選擇。
           </p>
           <p className="banner-bio" data-reveal="fade">
-            已役畢（替代役，2026/08）· 可即刻到職
+            已役畢（替代役，2026/08/17）· 可即刻到職
           </p>
         </div>
       </section>
@@ -322,6 +322,17 @@ export default function App() {
               影像分割與三維點雲處理（3D Point Cloud Processing），
               完整走過問題定義、方法設計、資料集拍攝到實驗分析的研究流程。
             </p>
+            <hr className="section-divider" />
+            <div className="info-card">
+              <h3>語義點雲流程</h3>
+              <p className="info-meta">
+                Visual SLAM · Segmentation · 2D–3D Fusion · Semantic Point Cloud
+              </p>
+              <p className="info-desc">
+                以 ORB-SLAM3、SAM2、GoCoPP 等現成開源工具，建立 SLAM 與影像分割結合的語義點雲流程，
+                將點雲分為地面、樓梯與物件；並調整特徵擷取讓點雲更集中在樓梯區域，處理單目 SLAM 的尺度問題。
+              </p>
+            </div>
           </div>
           <div className="info-right">
             <hr className="section-divider" />
@@ -349,17 +360,6 @@ export default function App() {
                 <img className="poster-image" src={posterImg} alt="碩士論文研究海報" data-reveal="slide" />
                 <span className="explore-link">點擊查看完整海報 &gt;</span>
               </a>
-            </div>
-            <hr className="section-divider" />
-            <div className="info-card" data-reveal="fade">
-              <h3>語義點雲流程</h3>
-              <p className="info-meta">
-                Visual SLAM · Segmentation · 2D–3D Fusion · Semantic Point Cloud
-              </p>
-              <p className="info-desc">
-                以 ORB-SLAM3、SAM2、GoCoPP 等現成開源工具，建立 SLAM 與影像分割結合的語義點雲流程，
-                將點雲分為地面、樓梯與物件；並調整特徵擷取讓點雲更集中在樓梯區域，處理單目 SLAM 的尺度問題。
-              </p>
             </div>
           </div>
         </div>
@@ -398,7 +398,7 @@ export default function App() {
           <div className="info-left" data-reveal="fade">
             <hr className="section-divider" />
             <p className="info-description">
-              已役畢（替代役，2026/08），可即刻到職。
+              已役畢（替代役，2026/08/17），可即刻到職。
             </p>
           </div>
           <div className="info-right">

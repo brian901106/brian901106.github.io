@@ -193,6 +193,15 @@ a {
   background: #e8e8e8;
 }
 
+.banner-bio-title {
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.25;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+}
+
 .banner-bio {
   font-size: 14px;
   color: var(--ink-muted);

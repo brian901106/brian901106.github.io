@@ -234,6 +234,7 @@ export default function App() {
         </div>
         <div className="banner-portrait">
           <img className="portrait-placeholder" src={portraitImg} alt="沈志謙" data-reveal="slide" />
+          <h3 className="banner-bio-title" data-reveal="fade">簡述</h3>
           <p className="banner-bio" data-reveal="fade">
             早稻田大學 IPS 碩士。從傳統影像處理與三維重建出發，到微調視覺模型、以 SAM2 分割建構語意點雲並偵測障礙物，
             畢業後延伸到 LLM 應用與 AI agent。具備技術底子，也善用 AI 輔助開發，

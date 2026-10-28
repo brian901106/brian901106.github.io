@@ -312,7 +312,9 @@ export default function App() {
       <section className="records-section" id="thesis">
         <hr className="section-divider" />
         <h2 className="section-title" data-reveal="fade">畢業論文</h2>
-        <p className="section-note" data-reveal="fade">Computer Vision</p>
+        <ul className="keyword-list" data-reveal="fade" aria-label="研究領域">
+          <li>Computer Vision</li>
+        </ul>
         <div className="records-layout">
           <div className="info-left" data-reveal="fade">
             <hr className="section-divider" />

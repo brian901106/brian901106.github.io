@@ -3,7 +3,6 @@ import './App.css'
 import posterImg from './assets/poster.png'
 import wasedaImg from './assets/waseda.jpg'
 import portraitImg from './assets/portrait.jpg'
-import heroImg from './assets/hero-floating-obstacle.jpg'
 import stairImg from './assets/projects/stair-research.jpg'
 import faceLive2dImg from './assets/projects/face-live2d.jpg'
 import fpgaCalcImg from './assets/projects/fpga-calculator.jpg'
@@ -12,6 +11,13 @@ import goldMinerImg from './assets/projects/gold-miner.jpg'
 import unityPuzzleImg from './assets/projects/unity-puzzle.jpg'
 import pipelineCpuImg from './assets/projects/pipeline-cpu.jpg'
 import stairSegImg from './assets/projects/stair-segmentation.jpg'
+import foodKcalImg from './assets/projects/food-kcal.jpg'
+import homieImg from './assets/projects/homie-tutor.jpg'
+import wikiRecallImg from './assets/projects/llm-wiki-recall.jpg'
+import timelineImg from './assets/timeline.jpg'
+
+// 履歷 PDF 放在 public/，以檔名固定的網址提供下載
+const resumeHref = `${import.meta.env.BASE_URL}resume_zh.pdf`
 
 const keywords = [
   'Visual SLAM',
@@ -23,11 +29,62 @@ const keywords = [
   'Verilog／FPGA',
 ]
 
+const llmKeywords = [
+  'Structured Outputs',
+  'Web Search',
+  'Claude／OpenAI',
+  'Prompt Caching',
+  '模型路由',
+  'Human-in-the-Loop',
+  'BM25',
+]
+
+const llmProjects = [
+  {
+    img: foodKcalImg,
+    alt: '食物熱量 APP 的實機畫面：今日飲食紀錄、單餐確認、本機食物庫',
+    title: '食物拍照辨識熱量 APP',
+    meta: '開源 · Structured Outputs · Web Search · Claude／OpenAI · 2026',
+    desc: 'LLM 只辨識品名與克數並輸出結構化 JSON，熱量來自可核對的營養資料、由程式計算；網路搜尋的引用網址必須出自搜尋結果才採用。',
+    link: { href: 'https://github.com/brian901106/FoodKcalNotes', label: 'GitHub 原始碼' },
+  },
+  {
+    img: homieImg,
+    alt: 'Homie 日語家教模式的實機畫面：倉鼠角色むぎ的對話、速查與小提醒',
+    title: 'Homie 多語言學習 APP（日語家教模式）',
+    meta: 'Prompt Caching · 模型路由 · VOICEVOX · 2026',
+    desc: '雲端 LLM 對話＋地端神經語音合成 VOICEVOX；三層 guardrail、模型路由與降級；prompt caching 實測 46% 輸入 token 由快取讀取。本機 LLM 介面預留給規劃中的本地台語 LLM。',
+  },
+  {
+    img: wikiRecallImg,
+    alt: '散佈圖：各版本知識庫的讀取行數與 recall，V3 讀量約為原始文件的一半且 recall 未下降',
+    title: '多角色架空世界觀手遊：LLM wiki',
+    meta: '手機遊戲 · LLM wiki vs RAG · Human-in-the-Loop · BM25 · 2026',
+    desc: '角色、劇情與世界觀由 LLM 編寫並反覆修改，需交叉檢索角色語氣、關係與設定；比較 LLM wiki 與 RAG 後採用 LLM wiki。Human-in-the-Loop 盲評 6 個版本與 BM25：讀取行數約減半（1,230 → 592）、recall 未下降（小樣本）。',
+  },
+]
+
+// 進行中專案沒有實機截圖，以網點底代替圖片
+const ongoingProjects = [
+  {
+    tile: 'banner-grid',
+    title: '台語 LLM 微調',
+    meta: 'QLoRA · Qwen2.5-1.5B · CPT／SFT · Human-in-the-Loop',
+    desc: 'QLoRA 微調 Qwen2.5-1.5B，訓練資料只取自教育部台語辭典；比較「先 CPT 再 SFT」與「只做 SFT」，以困惑度、chrF 與交換順序的 LLM 盲測裁判（sign test）評估。結論：CPT 在 SFT 後無可偵測增益；取樣解碼讓迴圈率 8.8% → 2.5%。',
+  },
+  {
+    tile: 'card-green',
+    title: 'RAG＋LLM wiki 開放世界遊戲（Mythweaver）',
+    meta: 'Hybrid 檢索 · Rerank · RAG · Tool Calling · Agent',
+    desc: '可匯入小說、以 D&D 規則遊玩。規則檢索以 hybrid 檢索＋rerank 融合，R@5 0.98；設計世界觀 RAG、世界線 wiki 與以工具呼叫驅動的 DM agent，架構實驗中。',
+  },
+]
+
 const projects = [
   {
     img: faceLive2dImg,
     alt: '以臉部特徵點驅動 Live2D 角色的網頁畫面',
-    title: '臉部特徵點 × Live2D',
+    title: '臉部特徵點驅動 Live2D',
     meta: '北科電腦動畫課 · Face Landmark · 2022 秋',
     desc: '用臉部特徵點即時驅動網頁 Live2D 角色，並實際用於直播。',
   },
@@ -123,9 +180,9 @@ export default function App() {
         <nav className="site-nav">
           <a href="#">首頁</a>
           <a href="#education">學歷</a>
+          <a href="#llm">LLM</a>
           <a href="#thesis">研究</a>
           <a href="#projects">專案</a>
-          <a href="#experience">經歷</a>
           <a href="#skills">技能</a>
           <a href="#contact">聯絡</a>
         </nav>
@@ -136,65 +193,140 @@ export default function App() {
         <h1 className="hero-title" data-reveal="fade">沈志謙</h1>
         <hr className="section-divider" />
         <p className="hero-subtitle" data-reveal="fade">
-          早稻田大學碩士 · 電腦視覺／影像演算法工程師
+          AI Agent／電腦視覺／LLM 應用
         </p>
       </section>
 
-      {/* VISUAL BANNER + PORTRAIT */}
-      <section className="banner-section">
-        <img className="banner-photo" src={heroImg} alt="樓梯下方的懸浮障礙物（紅色標示區域），白手杖掃不到頭部高度的危險" data-reveal="slide" />
+      {/* EDUCATION + PORTRAIT */}
+      <section className="banner-section" id="education">
+        {/* 標題獨立跨兩欄，讓大頭照與早稻田照片的上緣對齊 */}
+        <div className="banner-head">
+          <h2 className="section-title" data-reveal="fade">學歷</h2>
+          <p className="info-description" data-reveal="fade">
+            從資訊工程紮根，到影像資訊系統的專門研究。
+          </p>
+          <hr className="section-divider" />
+        </div>
+        <div className="banner-edu">
+          <div className="info-card" data-reveal="fade">
+            <img
+              className="info-card-image"
+              src={wasedaImg}
+              alt="早稻田大學情報生產系統研究科"
+              data-reveal="slide"
+            />
+            <h3>早稻田大學 IPS 研究院 · 碩士</h3>
+            <p className="info-meta">2023/09 – 2025/09 · 情報生產系統研究科（IPS）· 福岡北九州</p>
+            <p className="info-desc">
+              影像情報系統研究室（Image Information Systems Lab），指導教授：池永 剛（Takeshi Ikenaga）。
+              全英文授課與研究，每週 2–3 次英文進度報告。
+            </p>
+            <p className="info-desc">
+              研究主題：以 3D 重建協助視障者在真實世界中避開懸浮障礙物。
+            </p>
+          </div>
+          <hr className="section-divider" />
+          <div className="info-card" data-reveal="fade">
+            <h3>國立臺北科技大學 · 學士</h3>
+            <p className="info-meta">2020/09 – 2023/06 · 電資學士班 資訊工程系</p>
+            <p className="info-desc">
+              3 年修完 144 學分；GPA 3.80 / 4.0，系排名前 7%（5 / 71），最後一學期系排名第一。
+            </p>
+          </div>
+        </div>
         <div className="banner-portrait">
           <img className="portrait-placeholder" src={portraitImg} alt="沈志謙" data-reveal="slide" />
+          <h3 className="banner-bio-title" data-reveal="fade">簡述</h3>
           <p className="banner-bio" data-reveal="fade">
-            早稻田大學情報生產系統研究科（IPS）碩士，專長電腦視覺與 3D 重建。
-            碩士研究以 3D 重建協助視障者避開懸浮障礙物，在自行實拍的 22 段戶外樓梯影片上，
-            偵測率由 0.55 提升至 0.82。另具備 Verilog／FPGA 硬體實作經驗。
+            早稻田大學 IPS 碩士。從傳統影像處理與三維重建出發，到微調視覺模型、以 SAM2 分割建構語意點雲並偵測障礙物，
+            畢業後延伸到 LLM 應用與 AI agent。具備技術底子，也善用 AI 輔助開發，
+            並以研究的方法做決策：定義問題、實驗比較、驗證後再選擇。
           </p>
+          <h3 className="banner-bio-title" data-reveal="fade">經歷</h3>
+          <div className="banner-exp" data-reveal="fade">
+            <p className="banner-exp-title">替代役 · 臺中市政府警察局第二分局</p>
+            <p className="banner-exp-meta">2026/02 – 2026/08 · Python · Spec 文件 · 提示詞工程</p>
+            <p className="banner-bio">
+              以 spec 文件＋提示詞工程製作 Python 排班與輪休管理工具，
+              <strong>通過臺中市政府警察局內部資料安全審核</strong>，供同仁使用。
+              因表現優良獲<strong>榮譽假 7 天（上限）</strong>。
+            </p>
+          </div>
           <p className="banner-bio" data-reveal="fade">
-            已役畢（替代役，2026/08）· 可即刻到職
+            已役畢（替代役，2026/08/17）· 可即刻到職
           </p>
+          <a href="https://github.com/brian901106" target="_blank" rel="noopener noreferrer" className="explore-link">
+            github.com/brian901106 &gt;
+          </a>
+          <a href={resumeHref} target="_blank" rel="noopener noreferrer" className="explore-link">
+            履歷 Resume（PDF）&gt;
+          </a>
         </div>
       </section>
 
-      {/* EDUCATION SECTION */}
-      <section className="records-section" id="education">
+      {/* TIMELINE SECTION */}
+      <section className="areas-section" id="timeline">
         <hr className="section-divider" />
-        <h2 className="section-title" data-reveal="fade">學歷</h2>
-        <div className="records-layout">
-          <div className="info-left" data-reveal="fade">
-            <hr className="section-divider" />
-            <p className="info-description">
-              從資訊工程紮根，到影像資訊系統的專門研究。
-            </p>
-          </div>
-          <div className="info-right">
-            <hr className="section-divider" />
-            <div className="info-card" data-reveal="fade">
+        <h2 className="section-title" data-reveal="fade">專案時間軸</h2>
+        <div className="timeline-block">
+          <p className="timeline-hint">← 左右滑動查看 →</p>
+          <div className="timeline-scroll">
+            <a href={timelineImg} target="_blank" rel="noopener noreferrer">
               <img
-                className="info-card-image"
-                src={wasedaImg}
-                alt="早稻田大學情報生產系統研究科"
-                data-reveal="slide"
+                className="timeline-image"
+                src={timelineImg}
+                alt="2022–2026 專案時間軸：電腦視覺研究、硬體、課程專題、實務工具與 LLM 應用"
+                loading="lazy"
               />
-              <h3>早稻田大學 IPS 研究院 · 碩士</h3>
-              <p className="info-meta">2023/09 – 2025/09 · 情報生產系統研究科（IPS）· 福岡北九州</p>
-              <p className="info-desc">
-                影像情報系統研究室（Image Information Systems Lab），指導教授：池永 剛（Takeshi Ikenaga）。
-                全英文授課與研究，每週 2–3 次英文進度報告。
-              </p>
-              <p className="info-desc">
-                研究主題：以 3D 重建協助視障者在真實世界中避開懸浮障礙物。
-              </p>
-            </div>
-            <hr className="section-divider" />
-            <div className="info-card" data-reveal="fade">
-              <h3>國立臺北科技大學 · 學士</h3>
-              <p className="info-meta">2020/09 – 2023/06 · 電資學士班 資訊工程系</p>
-              <p className="info-desc">
-                3 年修完 144 學分；GPA 3.80 / 4.0，系排名前 7%（5 / 71），最後一學期系排名第一。
-              </p>
-            </div>
+            </a>
           </div>
+          <a href={timelineImg} target="_blank" rel="noopener noreferrer" className="explore-link">
+            點擊查看完整時間軸 &gt;
+          </a>
+        </div>
+      </section>
+
+      {/* LLM APPLICATIONS SECTION */}
+      <section className="areas-section" id="llm">
+        <hr className="section-divider" />
+        <h2 className="section-title" data-reveal="fade">LLM 應用</h2>
+        <ul className="keyword-list" data-reveal="fade" aria-label="涉及技術">
+          {llmKeywords.map((k) => (
+            <li key={k}>{k}</li>
+          ))}
+        </ul>
+        <div className="areas-grid">
+          {llmProjects.map((p) => (
+            <article className="area-card project-card" data-reveal="fade" key={p.title}>
+              <img className="project-image" src={p.img} alt={p.alt} loading="lazy" />
+              <h3>{p.title}</h3>
+              <p className="info-meta">{p.meta}</p>
+              <p className="project-desc">{p.desc}</p>
+              {p.link && (
+                <a className="explore-link project-link" href={p.link.href} target="_blank" rel="noopener noreferrer">
+                  {p.link.label} &gt;
+                </a>
+              )}
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* ONGOING SECTION */}
+      <section className="areas-section" id="ongoing">
+        <hr className="section-divider" />
+        <h2 className="section-title" data-reveal="fade">進行中</h2>
+        <div className="areas-grid areas-grid--two">
+          {ongoingProjects.map((p) => (
+            <article className="area-card project-card" data-reveal="fade" key={p.title}>
+              <div className={`ongoing-tile ${p.tile}`} aria-hidden="true">
+                <span className="status-tag">進行中</span>
+              </div>
+              <h3>{p.title}</h3>
+              <p className="info-meta">{p.meta}</p>
+              <p className="project-desc">{p.desc}</p>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -202,15 +334,30 @@ export default function App() {
       <section className="records-section" id="thesis">
         <hr className="section-divider" />
         <h2 className="section-title" data-reveal="fade">畢業論文</h2>
+        <p className="info-description section-lead" data-reveal="fade">
+          以單目相機影片重建 3D 場景，協助視障者避開頭部高度的懸浮障礙物。
+          研究涵蓋電腦視覺、視覺 SLAM、影像分割與三維點雲處理，
+          完整走過問題定義、方法設計、資料集拍攝到實驗分析的研究流程。
+        </p>
+        <ul className="keyword-list" data-reveal="fade" aria-label="研究領域">
+          <li>Computer Vision</li>
+          <li>Visual SLAM</li>
+          <li>單目 3D 重建</li>
+          <li>影像分割（SAM2）</li>
+          <li>3D 點雲處理</li>
+          <li>2D–3D 語義融合</li>
+          <li>地面重建</li>
+        </ul>
         <div className="records-layout">
-          <div className="info-left" data-reveal="fade">
+          <div className="info-right">
             <hr className="section-divider" />
-            <p className="info-description">
-              以單目相機影片重建 3D 場景，協助視障者避開頭部高度的懸浮障礙物。
-              研究涵蓋電腦視覺（Computer Vision）、視覺 SLAM（Visual SLAM）、
-              影像分割與三維點雲處理（3D Point Cloud Processing），
-              完整走過問題定義、方法設計、資料集拍攝到實驗分析的研究流程。
-            </p>
+            <div className="info-card" data-reveal="fade">
+              <h3>語義點雲流程</h3>
+              <p className="info-desc">
+                以 ORB-SLAM3、SAM2、GoCoPP 等現成開源工具，建立 SLAM 與影像分割結合的語義點雲流程，
+                將點雲分為地面、樓梯與物件；並調整特徵擷取讓點雲更集中在樓梯區域，處理單目 SLAM 的尺度問題。
+              </p>
+            </div>
           </div>
           <div className="info-right">
             <hr className="section-divider" />
@@ -239,17 +386,6 @@ export default function App() {
                 <span className="explore-link">點擊查看完整海報 &gt;</span>
               </a>
             </div>
-            <hr className="section-divider" />
-            <div className="info-card" data-reveal="fade">
-              <h3>語義點雲流程</h3>
-              <p className="info-meta">
-                Visual SLAM · Segmentation · 2D–3D Fusion · Semantic Point Cloud
-              </p>
-              <p className="info-desc">
-                以 ORB-SLAM3、SAM2、GoCoPP 等現成開源工具，建立 SLAM 與影像分割結合的語義點雲流程，
-                將點雲分為地面、樓梯與物件；並調整特徵擷取讓點雲更集中在樓梯區域，處理單目 SLAM 的尺度問題。
-              </p>
-            </div>
           </div>
         </div>
       </section>
@@ -257,7 +393,8 @@ export default function App() {
       {/* PROJECTS SECTION */}
       <section className="areas-section" id="projects">
         <hr className="section-divider" />
-        <h2 className="section-title" data-reveal="fade">專案</h2>
+        <h2 className="section-title" data-reveal="fade">CV 與硬體專案</h2>
+        <p className="section-note" data-reveal="fade">非提示詞工程：以下專案皆為親自撰寫程式、實作完成。</p>
         <ul className="keyword-list" data-reveal="fade" aria-label="涉及領域">
           {keywords.map((k) => (
             <li key={k}>{k}</li>
@@ -278,42 +415,14 @@ export default function App() {
         </div>
       </section>
 
-      {/* WORK EXPERIENCE SECTION */}
-      <section className="records-section" id="experience">
-        <hr className="section-divider" />
-        <h2 className="section-title" data-reveal="fade">經歷</h2>
-        <div className="records-layout">
-          <div className="info-left" data-reveal="fade">
-            <hr className="section-divider" />
-            <p className="info-description">
-              已役畢（替代役，2026/08），可即刻到職。
-            </p>
-          </div>
-          <div className="info-right">
-            <hr className="section-divider" />
-            <div className="info-card" data-reveal="fade">
-              <h3>替代役 · 臺中市政府警察局第二分局</h3>
-              <p className="info-meta">2026/02 – 2026/08 · Python</p>
-              <p className="info-desc">
-                以 Python 開發排班與輪休管理工具，供同仁使用。
-                因表現優良獲<strong>榮譽假 7 天（上限）</strong>。
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* SKILLS & ACTIVITIES SECTION */}
       <section className="records-section" id="skills">
         <hr className="section-divider" />
         <h2 className="section-title" data-reveal="fade">技能與活動</h2>
-        <div className="records-layout">
-          <div className="info-left" data-reveal="fade">
-            <hr className="section-divider" />
-            <p className="info-description">
-              以電腦視覺與 3D 為主，輔以硬體設計經驗。
-            </p>
-          </div>
+        <p className="info-description section-lead" data-reveal="fade">
+          電腦視覺與 3D 打底，延伸到 LLM 應用，輔以硬體設計經驗。
+        </p>
+        <div className="records-layout skills-layout">
           <div className="info-right">
             <hr className="section-divider" />
             <div className="info-card" data-reveal="fade">
@@ -321,6 +430,10 @@ export default function App() {
               <p className="info-desc">
                 <strong>電腦視覺與 3D：</strong>OpenCV、Visual SLAM（ORB-SLAM3）、SAM／SAM2、
                 YOLOv8-seg、點雲處理、平面重建（GoCoPP）、2D–3D 融合
+              </p>
+              <p className="info-desc">
+                <strong>LLM 應用：</strong>Claude／OpenAI API、Structured Outputs、Prompt Caching、
+                模型路由、RAG（BM25、hybrid 檢索＋rerank）、Human-in-the-Loop 評測、QLoRA 微調、MCP、Claude Code 多代理開發
               </p>
               <p className="info-desc">
                 <strong>程式語言：</strong>Python、C／C++、C#、Verilog
@@ -335,6 +448,8 @@ export default function App() {
                 <strong>語言：</strong>中文（母語）、英文（研究所全英文授課與研究）、日文（日本留學兩年）
               </p>
             </div>
+          </div>
+          <div className="info-right">
             <hr className="section-divider" />
             <div className="info-card" data-reveal="fade">
               <h3>社團與證照</h3>
@@ -358,13 +473,21 @@ export default function App() {
           <div className="collab-left" data-reveal="fade">
             <hr className="section-divider" />
             <p className="collab-text">
-              歡迎電腦視覺、影像演算法相關職缺洽詢。
+              歡迎 AI Agent、電腦視覺、LLM 應用相關職缺洽詢。
             </p>
           </div>
           <div className="collab-right" data-reveal="fade">
             <hr className="section-divider" />
             <a href="mailto:brian1030028@gmail.com" className="explore-link">
               brian1030028@gmail.com &gt;
+            </a>
+            <br />
+            <a href="https://github.com/brian901106" target="_blank" rel="noopener noreferrer" className="explore-link">
+              github.com/brian901106 &gt;
+            </a>
+            <br />
+            <a href={resumeHref} target="_blank" rel="noopener noreferrer" className="explore-link">
+              履歷 Resume（PDF）&gt;
             </a>
           </div>
         </div>
@@ -393,7 +516,8 @@ export default function App() {
           <div className="footer-col">
             <hr className="footer-divider" />
             <p>
-              <a href="https://github.com/brian901106" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="https://github.com/brian901106" target="_blank" rel="noopener noreferrer">GitHub</a><br />
+              <a href={resumeHref} target="_blank" rel="noopener noreferrer">履歷 Resume</a>
             </p>
           </div>
         </div>
@@ -407,9 +531,9 @@ export default function App() {
             <p>
               <a href="#">首頁</a><br />
               <a href="#education">學歷</a><br />
+              <a href="#llm">LLM 應用</a><br />
               <a href="#thesis">研究</a><br />
               <a href="#projects">專案</a><br />
-              <a href="#experience">經歷</a><br />
               <a href="#skills">技能</a><br />
               <a href="#contact">聯絡</a>
             </p>

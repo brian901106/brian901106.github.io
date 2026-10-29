@@ -153,17 +153,86 @@ a {
   object-fit: cover;
 }
 
+/* 首頁左欄：學歷 */
+.banner-edu {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.banner-head {
+  grid-column: 1 / -1;
+}
+
+.banner-head .section-title {
+  margin-bottom: 18px;
+}
+
+.banner-head .section-divider {
+  margin-bottom: 0;
+}
+
+/* 技能與社團證照左右並排，技能內容較多給寬一點 */
+.records-layout.skills-layout {
+  grid-template-columns: 1.5fr 1fr;
+}
+
+/* 區塊標題下方的導言段落 */
+.section-lead {
+  max-width: 760px;
+  margin-top: 20px;
+}
+
+.section-note {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--ink-muted);
+  margin-top: 16px;
+}
+
 .banner-portrait {
   display: flex;
   flex-direction: column;
   gap: 18px;
 }
 
+/* 高度與 .info-card-image 相同，讓大頭照與早稻田照片上下緣對齊 */
 .portrait-placeholder {
   width: 100%;
-  height: 340px;
+  height: 260px;
   object-fit: cover;
   background: #e8e8e8;
+}
+
+/* 與 .info-card h3 同大小；margin-top 補足 .info-card-image 的 24px 與欄位 gap 18px 的差，讓兩欄小標題上下緣對齊 */
+.banner-bio-title {
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.25;
+  padding-bottom: 16px;
+  margin-top: 6px;
+  border-bottom: 1px solid var(--rule);
+}
+
+/* 大頭照下方的經歷 */
+.banner-exp {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.banner-exp-title {
+  font-size: 16px;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+.banner-exp-meta {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-muted);
+  line-height: 1.7;
 }
 
 .banner-bio {
@@ -214,9 +283,13 @@ a {
   margin-top: 56px;
 }
 
+/* 專案卡以 subgrid 共用列軌，同一排卡片的圖片、小標題、標籤、說明上下緣對齊 */
 .area-card {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-row: span 5;
+  grid-template-rows: subgrid;
+  row-gap: 0;
+  align-content: start;
 }
 
 .area-pattern {
@@ -302,8 +375,66 @@ a {
 }
 
 .project-dot-tile {
-  flex: 1;
+  grid-row: 1 / -1;
   min-height: 0;
+}
+
+/* LLM 卡片的外部連結 */
+.project-link {
+  margin-top: 14px;
+}
+
+/* 進行中卡片沒有截圖，以網點底占住圖片位置，左上角放狀態標籤 */
+.areas-grid--two {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* 加上父層提高權重，避免手機版 .banner-grid 的 min-height／order 撐寬卡片、把色塊移到文字下方 */
+.areas-grid--two .ongoing-tile {
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  min-height: 0;
+  order: 0;
+  position: relative;
+}
+
+.status-tag {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  padding: 4px 12px;
+  line-height: 1.4;
+}
+
+/* 專案時間軸：手機寬度時保留可讀字級，改為橫向捲動 */
+.timeline-block {
+  margin-top: 72px;
+}
+
+.timeline-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 14px;
+}
+
+.timeline-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.timeline-hint {
+  display: none;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-muted);
+  margin-bottom: 10px;
 }
 
 /* ---- RECORDS (THESIS / EDUCATION / EXPERIENCE) ---- */
@@ -356,6 +487,11 @@ a {
   line-height: 1.25;
   padding-bottom: 16px;
   border-bottom: 1px solid var(--rule);
+}
+
+/* 小標題下方直接接內文時補上與 .info-meta 相同的間距 */
+.info-card h3 + .info-desc {
+  margin-top: 20px;
 }
 
 .info-meta {
@@ -589,11 +725,16 @@ a {
 @media (max-width: 768px) {
   .site-wrapper { padding: 0 24px; }
   .banner-section { grid-template-columns: 1fr; }
+  .banner-portrait { order: -1; }
   .banner-grid { min-height: 220px; order: 2; }
   .portrait-placeholder { height: 300px; object-position: center 20%; }
   .areas-grid { grid-template-columns: 1fr; gap: 56px; }
   .project-dot-cell { display: none; }
+  .areas-grid--two { grid-template-columns: 1fr; }
+  .timeline-image { width: 960px; max-width: none; }
+  .timeline-hint { display: block; }
   .records-layout,
+  .records-layout.skills-layout,
   .side-projects-layout,
   .collaborate-layout { grid-template-columns: 1fr; gap: 36px; }
   .side-project-card { grid-template-columns: 1fr; gap: 24px; }

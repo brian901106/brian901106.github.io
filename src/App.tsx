@@ -16,6 +16,9 @@ import homieImg from './assets/projects/homie-tutor.jpg'
 import wikiRecallImg from './assets/projects/llm-wiki-recall.jpg'
 import timelineImg from './assets/timeline.jpg'
 
+// 履歷 PDF 放在 public/，以檔名固定的網址提供下載
+const resumeHref = `${import.meta.env.BASE_URL}resume_zh.pdf`
+
 const keywords = [
   'Visual SLAM',
   '三維點雲處理',
@@ -255,6 +258,9 @@ export default function App() {
           <a href="https://github.com/brian901106" target="_blank" rel="noopener noreferrer" className="explore-link">
             github.com/brian901106 &gt;
           </a>
+          <a href={resumeHref} target="_blank" rel="noopener noreferrer" className="explore-link">
+            履歷 Resume（PDF）&gt;
+          </a>
         </div>
       </section>
 
@@ -427,7 +433,7 @@ export default function App() {
               </p>
               <p className="info-desc">
                 <strong>LLM 應用：</strong>Claude／OpenAI API、Structured Outputs、Prompt Caching、
-                模型路由、RAG（BM25、hybrid 檢索＋rerank）、Human-in-the-Loop 評測、QLoRA 微調
+                模型路由、RAG（BM25、hybrid 檢索＋rerank）、Human-in-the-Loop 評測、QLoRA 微調、MCP、Claude Code 多代理開發
               </p>
               <p className="info-desc">
                 <strong>程式語言：</strong>Python、C／C++、C#、Verilog
@@ -479,6 +485,10 @@ export default function App() {
             <a href="https://github.com/brian901106" target="_blank" rel="noopener noreferrer" className="explore-link">
               github.com/brian901106 &gt;
             </a>
+            <br />
+            <a href={resumeHref} target="_blank" rel="noopener noreferrer" className="explore-link">
+              履歷 Resume（PDF）&gt;
+            </a>
           </div>
         </div>
       </section>
@@ -506,7 +516,8 @@ export default function App() {
           <div className="footer-col">
             <hr className="footer-divider" />
             <p>
-              <a href="https://github.com/brian901106" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="https://github.com/brian901106" target="_blank" rel="noopener noreferrer">GitHub</a><br />
+              <a href={resumeHref} target="_blank" rel="noopener noreferrer">履歷 Resume</a>
             </p>
           </div>
         </div>

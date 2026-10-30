@@ -14,7 +14,7 @@
 | 區塊 | 內容 |
 |------|------|
 | LLM 應用 | 食物拍照辨識熱量 APP（[FoodKcalNotes](https://github.com/brian901106/FoodKcalNotes)，開源）、Homie 日語家教模式、多角色架空世界觀手遊的 LLM wiki |
-| 進行中 | 台語 LLM 微調（QLoRA、CPT／SFT 比較）、RAG＋LLM wiki 開放世界遊戲（架構實驗中） |
+| 進行中 | 台語 LLM 微調（QLoRA、CPT／SFT 比較）、RAG＋LLM wiki 開放世界遊戲（架構實驗中）、利用所學搭建一個不依賴現有harness並具有完整迴圈的agent (第一優先進行中)|
 | 畢業論文 | 以 3D 邊界整合重建樓梯區域，偵測視障者頭部高度的懸浮障礙物；偵測率 0.55 → 0.82、平均高度誤差 48.6 → 16.5 cm |
 | CV 與硬體專案 | 樓梯分割模型微調、臉部特徵點驅動 Live2D、Verilog／FPGA 實作等 |
 | 其他 | 學歷、替代役經歷、技能與證照 |
